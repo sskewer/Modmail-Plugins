@@ -12,7 +12,7 @@ class PowerLevel(commands.Cog):
     @commands.command()
     async def powerlevel(self, ctx, *, member: discord.Member = None):
         await ctx.send('Hello')
-        await message.add_reaction('✅')
+        await message.add_reaction(':white_check_mark:')
             
         
 def setup(bot):
