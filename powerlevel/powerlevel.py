@@ -10,20 +10,13 @@ class PowerLevel(commands.Cog):
         self.bot = bot
         self.db = bot.plugin_db.get_partition(self)
         
-    @group(name="powerlevel", invoke_without_command=True)
-    @commands.has_any_role(454261607799717888)
-    async def powerlevel(self, ctx: Context) -> None:
-        await ctx.send_help(ctx.command)
-        
-    @powerlevel.command()
-    @commands.has_any_role(454261607799717888)
-    async def powerlevel(*args):
-        output = ''
-        for word in args:
-            output += word
-            output += ' '
-        await client.say(output)
-
+@client.command()
+async def powerlevel(*args):
+    output = ''
+    for word in args:
+        output += word
+        output += ' '
+    await client.say(output)
         
 def setup(bot):
     bot.add_cog(PowerLevel(bot))
