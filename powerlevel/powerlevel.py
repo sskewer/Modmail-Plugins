@@ -10,8 +10,8 @@ class PowerLevel(commands.Cog):
         self.bot = bot
         
     @commands.command()
-    async def powerlevel(self, ctx, *):
-        await ctx.send('Hello')
+    async def powerlevel():
+        await print('Hello')
             
         
 def setup(bot):
