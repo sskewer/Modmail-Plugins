@@ -14,6 +14,15 @@ class PowerLevel(commands.Cog):
     @commands.has_any_role(454261607799717888)
     async def powerlevel(self, ctx: Context) -> None:
         await ctx.send_help(ctx.command)
+        
+    @powerlevel.command()
+    @commands.has_any_role(454261607799717888)
+    async def powerlevel(*args):
+        output = ''
+        for word in args:
+            output += word
+            output += ' '
+        await client.say(output)
 
         
 def setup(bot):
