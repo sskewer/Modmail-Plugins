@@ -6,9 +6,6 @@ from discord.utils import get
 
     
 class PowerLevel(commands.Cog):
-    def __init__(self, bot):
-        self.bot = bot
-        self._last_member = None
 
     @commands.command()
     async def powerlevel(*args):
