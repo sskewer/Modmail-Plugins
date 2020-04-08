@@ -11,8 +11,8 @@ class PowerLevel(commands.Cog):
         
     @commands.command()
     async def powerlevel(self, ctx, *, member: discord.Member = None):
-        await ctx.message.add_reaction('✅')
-        # await ctx.send('Hello')
+        if (ctx.message.channel.id == '603955376286728226'):
+            await ctx.message.add_reaction('✅')
          
         
 def setup(bot):
