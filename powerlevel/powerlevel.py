@@ -9,8 +9,8 @@ class PowerLevel(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
         
-    @commands.command(self, ctx, *, member: discord.Member = None)
-    async def powerlevel():
+    @commands.command()
+    async def powerlevel(self, ctx, *, member: discord.Member = None):
         await ctx.send('Hello')
             
         
