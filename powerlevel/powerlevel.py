@@ -11,14 +11,12 @@ class PowerLevel(commands.Cog):
         self._last_member = None
 
     @commands.command()
-    async def powerlevel(self, ctx, *, member: discord.Member = None):
-        """Says hello"""
-        member = member or ctx.author
-        if self._last_member is None or self._last_member.id != member.id:
-            await ctx.send('Hello {0.name}~'.format(member))
-        else:
-            await ctx.send('Hello {0.name}... This feels familiar.'.format(member))
-        self._last_member = member
+    async def powerlevel(*args):
+        output = ''
+        for word in args:
+            output += word
+            output += ' '
+        await ctx.send(output)
         
         
 def setup(bot):
