@@ -12,6 +12,7 @@ class PowerLevel(commands.Cog):
     @commands.command()
     async def powerlevel(self, ctx, *, member: discord.Member = None):
         await ctx.send('Hello')
+        message.react('✅')
             
         
 def setup(bot):
