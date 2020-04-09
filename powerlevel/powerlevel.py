@@ -17,12 +17,13 @@ class PowerLevel(commands.Cog):
       
     @commands.command()
     async def powerlevel(self, ctx, *, content:str):
+        # Vars
+        guild   = ctx.message.guild;
+        user_id = ctx.message.author.id;
+        error   = ":warning: <@" + str(user_id) + ">, per favore inserisci un power level valido.**"
         if content.isdigit():
             # Vars
             index  = int(content);
-            guild   = ctx.message.guild;
-            user_id = ctx.message.author.id;
-            error   = ":warning: <@" + str(user_id) + ">, per favore inserisci un power level valido.**"
             member  = guild.get_member(user_id)
             # Check
             await ctx.send(member.nick)
