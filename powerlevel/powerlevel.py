@@ -28,7 +28,7 @@ class PowerLevel(commands.Cog):
             # New Nickname
             if index > 0 and index <= len(levels):
                 tag = levels[index];  
-                await ctx.send('Hi')
+                await ctx.send('Hiii')
                 await member.edit(nick='Ciaooo')
                 await ctx.message.add_reaction('✅')
             else:
