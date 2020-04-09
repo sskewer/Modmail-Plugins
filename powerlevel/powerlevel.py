@@ -18,8 +18,9 @@ class PowerLevel(commands.Cog):
     @commands.command()
     async def powerlevel(self, ctx, *, content:str):
         # Vars
-        guild   = ctx.message.guild;
-        author  = ctx.message.author;
+        message = ctx.message;
+        guild   = message.guild;
+        author  = message.author;
         user_id = author.id;
         channel = ctx.channel;
         # Check
@@ -34,27 +35,27 @@ class PowerLevel(commands.Cog):
                   # New Nickname
                   await member.edit(nick=author.name + ' ' + tag)
                   # Reaction
-                  await ctx.message.add_reaction(':white_check_mark:')
+                  await ctx.message.add_reaction('✅')
               else:
                   # Error Message
                   error   = '**<@' + str(user_id) + '>, per favore inserisci un power level valido.**';
                   # Send Message
                   await ctx.send(error)
                   # Remove Author Message
-                  await ctx.delete()
+                  await message.delete()
           elif content == 'reset':
               member  = guild.get_member(user_id)
               # New Nickname
               await member.edit(nick=author.name)
               # Reaction
-              await ctx.message.add_reaction(':white_check_mark:')
+              await ctx.message.add_reaction('✅')
           else:
             await ctx.send(error)
             # Remove Author Message
-            await ctx.delete()
+            await message.delete()
         else:
           # Remove Author Message
-          await ctx.delete()
+          await message.delete()
        
 def setup(bot):
     bot.add_cog(PowerLevel(bot))
