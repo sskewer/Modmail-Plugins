@@ -20,7 +20,7 @@ class PowerLevel(commands.Cog):
         # Vars
         guild   = ctx.message.guild;
         user_id = ctx.message.author.id;
-        error   = ":warning: <@" + str(user_id) + ">, per favore inserisci un power level valido.**"
+        error   = "**<@" + str(user_id) + ">, per favore inserisci un power level valido.**"
         if content.isdigit():
             # Vars
             index  = int(content);
@@ -38,7 +38,7 @@ class PowerLevel(commands.Cog):
                 # Reaction
                 await ctx.message.add_reaction('✅')
             else:
-                await ctx.send('Errore')
+                await ctx.send(error)
         else:
            await ctx.send(error)
          
