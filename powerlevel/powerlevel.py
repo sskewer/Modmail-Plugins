@@ -23,7 +23,7 @@ class PowerLevel(commands.Cog):
             guild   = ctx.message.guild;
             user_id = ctx.message.author.id;
             member  = guild.get_member(user_id)
-            # Reaction
+            # Check
             await ctx.send(member.nick)
             await ctx.send(content)
             # New Nickname
@@ -31,7 +31,9 @@ class PowerLevel(commands.Cog):
                 tag = levels[index];  
                 await ctx.send('Hii')
                 await ctx.send(tag)
+                # New Nickname
                 await member.edit(nick='Ciaooo')
+                # Reaction
                 await ctx.message.add_reaction('✅')
             else:
                 await ctx.send(':warning: **Per favore inserisci un power level valido.**')
