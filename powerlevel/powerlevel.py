@@ -35,7 +35,7 @@ class PowerLevel(commands.Cog):
                 await ctx.message.add_reaction('✅')
             else:
                 await ctx.send(error)
-        elif content == '':
+        elif content == 'reset':
             # Vars
             index  = int(content);
             member  = guild.get_member(user_id)
