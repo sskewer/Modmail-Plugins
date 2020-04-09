@@ -2,11 +2,18 @@ from discord import Embed, Guild, Member, Role
 from discord.ext import commands
 from discord.ext.commands import Bot, Cog, Context, Greedy, group
 from discord.utils import get
+import re
  
+# Ebic Functions
 levels = {};
 def setup(maxLevel):
   for i in range(1, maxLevel+1):
     levels[i] = " [⚡" + str(i) + "]";
+ 
+def getNick(nick):
+  pattern = re.compile(r'(\S)+|(\[⚡(\d)+])')
+  form_nick = pattern.search(nick);
+  return form_nick.group();
  
 # Setup
 setup(140)
@@ -34,7 +41,8 @@ class PowerLevel(commands.Cog):
               if index > 0 and index <= 140:
                   tag = levels[index];
                   # New Nickname
-                  await member.edit(nick=author.name + ' ' + tag)
+                  original_nick = getNick(member.nick)
+                  await member.edit(nick=original_nick + ' ' + tag)
                   # Reaction
                   await ctx.message.add_reaction('✅')
               else:
@@ -45,7 +53,8 @@ class PowerLevel(commands.Cog):
           elif content == 'reset':
               member  = guild.get_member(user_id)
               # New Nickname
-              await member.edit(nick=author.name)
+              original_nick = getNick(member.nick)
+              await member.edit(nick=original_nick)
               # Reaction
               await ctx.message.add_reaction('✅')
           else:
