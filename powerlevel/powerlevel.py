@@ -21,21 +21,21 @@ class PowerLevel(commands.Cog):
     @commands.command()
     async def powerlevel(self, ctx, *, content:str):
         if content.isdigit():
+            # Reaction
+            async message.add_reaction('✅')
             # Var Definition
             author  = ctx.author;
             message = ctx.message;
-            ctx.send(' Content: ' + content)
-            index = int(content)
+            async  ctx.send(' Content: ' + content)
+            index = 1;
             # New Nickname
             if index > 0 and index <= len(levels):
                 tag = levels[index];
-                author.edit(nick=author.name + tag)
-                # Reaction
-                message.add_reaction('✅')
+                async  author.edit(nick=author.name + tag)
             else:
-                ctx.send(':warning: **Per favore inserisci un power level valido.**')
+                async  ctx.send(':warning: **Per favore inserisci un power level valido.**')
         else:
-           ctx.send(':warning: **Per favore inserisci solo numeri.**')
+           async  ctx.send(':warning: **Per favore inserisci solo numeri.**')
          
         
 def setup(bot):
