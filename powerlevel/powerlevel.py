@@ -21,18 +21,15 @@ class PowerLevel(commands.Cog):
     @commands.command()
     async def powerlevel(self, ctx, *, content:str):
         if content.isdigit():
-            # Var Definition
-            author  = ctx.author;
-            message = ctx.message;
             # Reaction
-            await message.add_reaction('✅')
-            await message.add_reaction('⚡')
+            await ctx.message.add_reaction('✅')
+            await ctx.message.add_reaction('⚡')
             await ctx.send(' Content: ' + content)
             index = 1;
             # New Nickname
             if index > 0 and index <= len(levels):
                 tag = levels[index];
-                await author.edit(nick=author.name + tag)
+                await ctx.author.edit(nick=author.name + tag)
             else:
                 await ctx.send(':warning: **Per favore inserisci un power level valido.**')
         else:
