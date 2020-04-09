@@ -19,6 +19,7 @@ class PowerLevel(commands.Cog):
     async def powerlevel(self, ctx, *, content:str):
         if content.isdigit():
             # Reaction
+            await ctx.message.add_reaction('✅')
             await ctx.send(ctx.message.guild.name)
             index = 1;
             # New Nickname
