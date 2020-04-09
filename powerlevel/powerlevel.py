@@ -19,16 +19,14 @@ class PowerLevel(commands.Cog):
     async def powerlevel(self, ctx, *, content:str):
         if content.isdigit():
             # Reaction
-            await ctx.message.add_reaction('✅')
-            await ctx.message.add_reaction('⚡')
-            await ctx.send(ctx.author.display_name )
+            await ctx.send(ctx.server.name)
             index = 1;
             # New Nickname
             if index > 0 and index <= len(levels):
                 tag = levels[index];  
                 await ctx.send(' Hi')
                 await ctx.author.edit(nick=ctx.author.display_name + tag)
-                await ctx.send(' Hi2 ')
+                await ctx.message.add_reaction('✅')
             else:
                 await ctx.send(':warning: **Per favore inserisci un power level valido.**')
         else:
