@@ -4,8 +4,6 @@ from discord.ext.commands import Bot, Cog, Context, Greedy, group
 from discord.utils import get
 import re
 
-bot.remove_command('help')
-
 # Ebic Functions
 levels = {};
 def setup(maxLevel):
