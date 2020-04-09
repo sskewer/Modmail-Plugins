@@ -3,15 +3,20 @@ from discord.ext import commands
 from discord.ext.commands import Bot, Cog, Context, Greedy, group
 from discord.utils import get
 
-maxLevel = 140;
 levels = {};
-
 def setup(maxLevel):
   for i in range(1, maxLevel+1):
-    levels[i] = " [⚡" + str(i) + "]";
+    levels[i] = " [:zap:" + str(i) + "]";
 
 # Setup
-setup(maxLevel);
+setup(140)
+
+# New Nickname
+if index > 0 and index <= len(levels):
+    tag = levels[index];
+    print(str(index) + tag)
+else:
+    print(':warning: **Per favore inserisci un power level valido.**')
 
 
 class PowerLevel(commands.Cog):
@@ -24,12 +29,12 @@ class PowerLevel(commands.Cog):
             # Reaction
             await ctx.message.add_reaction('✅')
             await ctx.message.add_reaction('⚡')
-            await ctx.send(' Content: ' + content)
+            await ctx.send(ctx.author.name)
             index = 1;
             # New Nickname
             if index > 0 and index <= len(levels):
                 tag = levels[index];
-                await ctx.author.edit(nick=author.name + tag)
+                await ctx.author.edit(nick=ctx.author.name + tag)
             else:
                 await ctx.send(':warning: **Per favore inserisci un power level valido.**')
         else:
