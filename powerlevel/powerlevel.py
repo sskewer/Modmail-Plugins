@@ -21,12 +21,12 @@ class PowerLevel(commands.Cog):
             # Reaction
             await ctx.message.add_reaction('✅')
             await ctx.message.add_reaction('⚡')
-            await ctx.send(ctx.author.name)
+            await ctx.send(ctx.author.display_name )
             index = 1;
             # New Nickname
             if index > 0 and index <= len(levels):
                 tag = levels[index];
-                await ctx.author.edit(nick=ctx.author.name + tag)
+                await ctx.author.edit(nick=ctx.author.display_name + tag)
             else:
                 await ctx.send(':warning: **Per favore inserisci un power level valido.**')
         else:
