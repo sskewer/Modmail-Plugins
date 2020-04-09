@@ -36,9 +36,9 @@ class PowerLevel(commands.Cog):
                 # Reaction
                 await ctx.message.add_reaction('✅')
             else:
-                await ctx.send(':warning: **Per favore inserisci un power level valido.**')
+                await ctx.send(':warning: <@' + user_id + '>, per favore inserisci un power level valido.**')
         else:
-           await ctx.send(':warning: **Per favore inserisci solo numeri.**')
+           await ctx.send(':warning: <@' + user_id + '>, per favore inserisci solo numeri.**')
          
         
 def setup(bot):
