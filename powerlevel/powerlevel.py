@@ -38,7 +38,7 @@ class PowerLevel(commands.Cog):
                   # Reaction
                   await ctx.message.add_reaction('✅')
               else:
-                  # Send Message
+                  # Send Error Message
                   await ctx.send(error)
                   # Remove Author Message
                   await message.delete()
@@ -49,6 +49,7 @@ class PowerLevel(commands.Cog):
               # Reaction
               await ctx.message.add_reaction('✅')
           else:
+            # Send Error Message
             await ctx.send(error)
             # Remove Author Message
             await message.delete()
