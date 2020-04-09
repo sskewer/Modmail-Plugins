@@ -10,9 +10,6 @@ levels = {'1': ' [:zap: 1]',
           '4': ' [:zap: 4]',
           '5': ' [:zap: 5]'}
 
-    await ctx.author.edit(nick=ctx.author.display_name + levels[content])
-
-
 class PowerLevel(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
