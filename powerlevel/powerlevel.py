@@ -19,16 +19,16 @@ class PowerLevel(commands.Cog):
     async def powerlevel(self, ctx, *, content:str):
         if content.isdigit():
             # Vars
-            number = int(content,2)
+            number  = int(content);
             guild   = ctx.message.guild;
             user_id = ctx.message.author.id;
             member  = guild.get_member(user_id)
             # Reaction
             await ctx.send(member.nick)
-            await ctx.send(number)
+            await ctx.send(content)
             index = 1;
             # New Nickname
-            if index > 0 and index <= 140:
+            if number > 0 and number <= 140:
                 tag = levels[index];  
                 await ctx.send('Hii')
                 await member.edit(nick='Ciaooo')
