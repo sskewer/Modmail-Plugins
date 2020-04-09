@@ -21,11 +21,11 @@ class PowerLevel(commands.Cog):
     @commands.command()
     async def powerlevel(self, ctx, *, content:str):
         if content.isdigit():
-            index = int(content)
+            # index = int(content)
             # Var Definition
             author  = ctx.author;
             message = ctx.message;
-            await ctx.send('Indice: ' + index + ' Content: ' + content)
+            await ctx.send(' Content: ' + content)
             # New Nickname
             if index > 0 and index <= len(levels):
                 tag = levels[index];
