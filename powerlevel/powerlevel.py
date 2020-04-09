@@ -11,14 +11,6 @@ def setup(maxLevel):
 # Setup
 setup(140)
 
-# New Nickname
-if index > 0 and index <= len(levels):
-    tag = levels[index];
-    print(str(index) + tag)
-else:
-    print(':warning: **Per favore inserisci un power level valido.**')
-
-
 class PowerLevel(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
