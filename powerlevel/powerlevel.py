@@ -11,13 +11,12 @@ class PowerLevel(commands.Cog):
         
     @commands.command()
     async def powerlevel(self, ctx, *, content:str):
-        if content.isdigit():
-           if content >= 0 and content <= 0:
-              await ctx.message.add_reaction('✅')
-              await ctx.send(content)
-           else:
-              await ctx.send(':warning: **Per favore inserisci un power level valido.**')
+        if content.isdigit() and content >= 0 and content <= 0:
+           await ctx.message.add_reaction('✅')
+           await ctx.send(content)
         else:
+           await ctx.send(':warning: **Per favore inserisci un power level valido.**')
+        if not content.isdigit():
            await ctx.send(':warning: **Per favore inserisci solo numeri.**')
          
         
