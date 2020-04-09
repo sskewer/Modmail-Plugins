@@ -11,7 +11,7 @@ def setup(maxLevel):
     levels[i] = " [⚡" + str(i) + "]";
  
 def getNick(nick:str):
-  pattern = re.compile(r'(\S)+|([zap(\d)+])')
+  pattern = re.compile(r'(\S)+|([⚡(\d)+])')
   form_nick = pattern.search(nick);
   return form_nick.group();
  
@@ -41,7 +41,7 @@ class PowerLevel(commands.Cog):
               if index > 0 and index <= 140:
                   tag = levels[index];
                   # New Nickname
-                  original_nick = getNick(member.display_name)
+                  original_nick = getName(author.display_name)
                   await member.edit(nick=original_nick + ' ' + tag)
                   # Reaction
                   await ctx.message.add_reaction('✅')
@@ -53,7 +53,7 @@ class PowerLevel(commands.Cog):
           elif content == 'reset':
               member  = guild.get_member(user_id)
               # New Nickname
-              original_nick = getNick(member.nick)
+              original_nick = getName(author.display_name)
               await member.edit(nick=original_nick)
               # Reaction
               await ctx.message.add_reaction('✅')
