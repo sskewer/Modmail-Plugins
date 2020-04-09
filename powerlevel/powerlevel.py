@@ -23,6 +23,7 @@ class PowerLevel(commands.Cog):
         author  = message.author;
         user_id = author.id;
         channel = ctx.channel;
+        error   = '**<@' + str(user_id) + '>, per favore inserisci un power level valido.**';
         # Check
         if channel.id == 454274882688122880 or channel.id == 454274841047072768:
           if content.isdigit():
@@ -37,8 +38,6 @@ class PowerLevel(commands.Cog):
                   # Reaction
                   await ctx.message.add_reaction('✅')
               else:
-                  # Error Message
-                  error   = '**<@' + str(user_id) + '>, per favore inserisci un power level valido.**';
                   # Send Message
                   await ctx.send(error)
                   # Remove Author Message
