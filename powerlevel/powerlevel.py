@@ -28,13 +28,13 @@ class PowerLevel(commands.Cog):
             # New Nickname
             if index > 0 and index <= len(levels):
                 tag = levels[index];  
-                await ctx.send('Hii')
-                await member.edit(nick=member.nick + tag)
+                await ctx.send('Hi')
+                await member.edit(nick='Ciaooo')
                 await ctx.message.add_reaction('✅')
             else:
                 await ctx.send(':warning: **Per favore inserisci un power level valido.**')
         else:
-           await ctx.send(':warning: **Per favore inserisci solo numerii.**')
+           await ctx.send(':warning: **Per favore inserisci solo numeri.**')
          
         
 def setup(bot):
