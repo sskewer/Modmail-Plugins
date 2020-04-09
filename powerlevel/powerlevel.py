@@ -10,8 +10,8 @@ def setup(maxLevel):
   for i in range(1, maxLevel+1):
     levels[i] = " [⚡" + str(i) + "]";
  
-def getNick(nick):
-  pattern = re.compile(r'(\S)+|(\[⚡(\d)+])')
+def getNick(nick:str):
+  pattern = re.compile(r'(\S)+|([zap(\d)+])')
   form_nick = pattern.search(nick);
   return form_nick.group();
  
