@@ -11,8 +11,11 @@ class PowerLevel(commands.Cog):
         
     @commands.command()
     async def powerlevel(self, ctx, *, content:str):
-        await ctx.message.add_reaction('✅')
-        await ctx.send(content)
+        if content.isdigit():
+           await ctx.message.add_reaction('✅')
+           await ctx.send(content)
+        else:
+           await ctx.send('Error')
          
         
 def setup(bot):
