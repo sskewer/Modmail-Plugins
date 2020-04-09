@@ -6,7 +6,7 @@ from discord.utils import get
 levels = {};
 def setup(maxLevel):
   for i in range(1, maxLevel+1):
-    levels[i] = " [:zap:" + str(i) + "]";
+    levels[i] = " [⚡" + str(i) + "]";
 
 # Setup
 setup(140)
@@ -28,8 +28,8 @@ class PowerLevel(commands.Cog):
             # New Nickname
             if index > 0 and index <= len(levels):
                 tag = levels[index];  
-                await ctx.send(' Hi')
-                await ctx.author.edit(nick=ctx.author.display_name + tag)
+                await ctx.send('Hi')
+                await member.edit(nick=member.nick + tag)
                 await ctx.message.add_reaction('✅')
             else:
                 await ctx.send(':warning: **Per favore inserisci un power level valido.**')
