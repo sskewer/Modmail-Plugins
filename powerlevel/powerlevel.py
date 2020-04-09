@@ -13,8 +13,7 @@ class PowerLevel(commands.Cog):
     async def powerlevel(self, ctx, *, content:str):
         if content.isdigit():
            await ctx.message.add_reaction('✅')
-           nick = ctx.author
-           await ctx.send(nick)
+           await cts.send(content)
         else:
            await ctx.send(':warning: **Per favore inserisci solo numeri.**')
          
