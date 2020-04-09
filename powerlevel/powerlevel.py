@@ -20,6 +20,7 @@ class PowerLevel(commands.Cog):
         if content.isdigit():
             # Reaction
             await ctx.message.add_reaction('✅')
+            await ctx.message.add_reaction('⚡')
             await ctx.send(ctx.author.display_name )
             index = 1;
             # New Nickname
