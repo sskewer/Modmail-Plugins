@@ -18,10 +18,8 @@ class PowerLevel(commands.Cog):
     @commands.command()
     async def powerlevel(self, ctx, *, content:str):
         if content.isdigit():
-            # Var
-            server = get_server(454261607799717888)
             # Reaction
-            await ctx.send(server.name)
+            await ctx.send(ctx.message.guild.name)
             index = 1;
             # New Nickname
             if index > 0 and index <= len(levels):
