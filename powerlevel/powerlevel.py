@@ -10,8 +10,9 @@ class PowerLevel(commands.Cog):
         self.bot = bot
         
     @commands.command()
-    async def powerlevel(self, ctx, *, member: discord.Member = None):
+    async def powerlevel(self, ctx, *, content:str):
         await ctx.message.add_reaction('✅')
+        await ctx.send(content)
          
         
 def setup(bot):
