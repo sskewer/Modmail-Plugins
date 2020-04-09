@@ -22,6 +22,7 @@ class PowerLevel(commands.Cog):
             index  = int(content);
             guild   = ctx.message.guild;
             user_id = ctx.message.author.id;
+            error   = ':warning: <@' + user_id + '>, per favore inserisci un power level valido.**'
             member  = guild.get_member(user_id)
             # Check
             await ctx.send(member.nick)
@@ -36,9 +37,9 @@ class PowerLevel(commands.Cog):
                 # Reaction
                 await ctx.message.add_reaction('✅')
             else:
-                await ctx.send(':warning: <@' + user_id + '>, per favore inserisci un power level valido.**')
+                await ctx.send(error)
         else:
-           await ctx.send(':warning: <@' + user_id + '>, per favore inserisci solo numeri.**')
+           await ctx.send(error)
          
         
 def setup(bot):
