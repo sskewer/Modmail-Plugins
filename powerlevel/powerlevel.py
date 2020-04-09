@@ -15,7 +15,8 @@ class PowerLevel(commands.Cog):
            await ctx.message.add_reaction('✅')
            await ctx.send(content)
         else:
-           await ctx.send('Error')
+           await ctx.message.add_reaction('🚫')
+           await ctx.send(':warning: **Please enter only number.**')
          
         
 def setup(bot):
