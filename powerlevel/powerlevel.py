@@ -14,8 +14,7 @@ class PowerLevel(commands.Cog):
         if content.isdigit():
            await ctx.message.add_reaction('✅')
            await ctx.send(content)
-           # await ctx.send(':warning: **Per favore inserisci un power level valido.**')
-        if not content.isdigit():
+        else:
            await ctx.send(':warning: **Per favore inserisci solo numeri.**')
          
         
