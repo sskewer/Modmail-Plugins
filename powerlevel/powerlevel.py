@@ -21,12 +21,12 @@ class PowerLevel(commands.Cog):
     @commands.command()
     async def powerlevel(self, ctx, *, content:str):
         if content.isdigit():
-            # Reaction
-            await message.add_reaction('✅')
-            await message.add_reaction('⚡')
             # Var Definition
             author  = ctx.author;
             message = ctx.message;
+            # Reaction
+            await message.add_reaction('✅')
+            await message.add_reaction('⚡')
             await ctx.send(' Content: ' + content)
             index = 1;
             # New Nickname
