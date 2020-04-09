@@ -18,9 +18,12 @@ class PowerLevel(commands.Cog):
     @commands.command()
     async def powerlevel(self, ctx, *, content:str):
         if content.isdigit():
+            # Vars
+            guild   = ctx.message.guild;
+            user_id = ctx.message.author.id;
+            member  = guild.get_member(user_id)
             # Reaction
-            await ctx.message.add_reaction('✅')
-            await ctx.send(ctx.message.guild.name)
+            await ctx.send(member.nick)
             index = 1;
             # New Nickname
             if index > 0 and index <= len(levels):
@@ -31,7 +34,7 @@ class PowerLevel(commands.Cog):
             else:
                 await ctx.send(':warning: **Per favore inserisci un power level valido.**')
         else:
-           await ctx.send(':warning: **Per favore inserisci solo numerii.**')
+           await ctx.send(':warning: **Per favore inserisci solo numeri.**')
          
         
 def setup(bot):
