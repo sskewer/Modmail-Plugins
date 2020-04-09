@@ -6,7 +6,7 @@ from discord.utils import get
 levels = {};
 def setup(maxLevel):
   for i in range(1, maxLevel+1):
-    levels[i] = " [:zap:" + str(i) + "]";
+    levels[i] = " [⚡" + str(i) + "]";
  
 # Setup
 setup(140)
