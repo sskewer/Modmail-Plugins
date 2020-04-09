@@ -11,7 +11,7 @@ class PowerLevel(commands.Cog):
         
     @commands.command()
     async def powerlevel(self, ctx, *, content:str):
-        if content.isdigit() and content >= 0 and content <= 0:
+        if content.isdigit() and content >= 0 and content <= 150:
            await ctx.message.add_reaction('✅')
            await ctx.send(content)
         else:
