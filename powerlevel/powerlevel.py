@@ -36,8 +36,6 @@ class PowerLevel(commands.Cog):
             else:
                 await ctx.send(error)
         elif content == 'reset':
-            # Vars
-            index  = int(content);
             member  = guild.get_member(user_id)
             # New Nickname
             await member.edit(nick=author.name)
