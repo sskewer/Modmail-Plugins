@@ -34,7 +34,7 @@ class PowerLevel(commands.Cog):
             else:
                 await ctx.send(':warning: **Per favore inserisci un power level valido.**')
         else:
-           await ctx.send(':warning: **Per favore inserisci solo numeri.**')
+           await ctx.send(':warning: **Per favore inserisci solo numerii.**')
          
         
 def setup(bot):
