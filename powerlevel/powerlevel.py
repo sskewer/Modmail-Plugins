@@ -24,10 +24,7 @@ class PowerLevel(commands.Cog):
         if content.isdigit():
             # Vars
             index  = int(content);
-            member  = guild.get_member(user_id)
-            # Check
-            await ctx.send(member.nick)
-            await ctx.send(content)
+            member = guild.get_member(user_id)
             # New Nickname
             if index > 0 and index <= 140:
                 tag = levels[index];
