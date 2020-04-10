@@ -1,9 +1,9 @@
 ## **MODMAIL PLUGIN by Skewer**
 **The following plugins are only used for the use of [ModMail](https://github.com/kyb3r/modmail).**
 <p align="center">
-<br><br>![Python](https://img.shields.io/badge/python-v3.7-12a4ff?style=for-the-badge&logo=python&logoColor=12a4ff)
-![Library](https://img.shields.io/badge/library-discord%2Epy-ffbb10?style=for-the-badge)
-[![License](https://img.shields.io/github/license/sskewer/modmail?style=for-the-badge)](http://doge.mit-license.org)
+<br><br><img src="https://img.shields.io/badge/python-v3.7-12a4ff?style=for-the-badge&logo=python&logoColor=12a4ff">
+<a href="http://doge.mit-license.org"><img src="https://img.shields.io/github/license/sskewer/modmail?style=for-the-badge"></a>
+<img src="https://img.shields.io/badge/library-discord%2Epy-ffbb10?style=for-the-badge">
 <br><img src="https://img.shields.io/badge/discord-Simo%232471-7289DA?style=for-the-badge&logo=Discord&logoColor=7289DA">
 <img src="https://img.shields.io/badge/github-sskewer-181717?style=for-the-badge&logo=github">
 <a href="https://www.twitch.tv/mrskewer"><img src="https://img.shields.io/badge/twitch-mrskewer-9146FF?style=for-the-badge&logo=Twitch&logoColor=9146FF"></a>
