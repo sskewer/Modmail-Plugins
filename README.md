@@ -6,4 +6,4 @@ The following plugins are only used for the use of [ModMail](https://github.com/
 
 |    Name   |   Usage   |
 |    :--    |    --:    |
-|  testo 1  |  testo 2  |
+|  Power Level  |  testo 2  |
