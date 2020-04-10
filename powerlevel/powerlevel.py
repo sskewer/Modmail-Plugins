@@ -26,7 +26,7 @@ class PowerLevel(commands.Cog):
      
     @commands.command()
     async def powerlevel(self, ctx, *, content:str):
-        """Assegnare il livello di Potenza STW al proprio nickname.\n\n**Canali consentiti:** <#454261608324268063>, <#454274841047072768> e <#454274882688122880>\n\n**`/powerlevel <livello>`** - Aggiungere il livello al proprio nickname\n**`/powerlevel reset`** - Rimuovere il livello dal proprio nickname\n\n***Nota:*** *I nickname non possono superare i 32 caratteri.*"""
+        """Assegnare il livello di Potenza STW al proprio nickname, utilizzando il comando in uno dei seguenti canali: <#454261608324268063>, <#454274841047072768> o <#454274882688122880>\n\n**`/powerlevel <livello>`** - Aggiungere il livello al proprio nickname\n**`/powerlevel reset`** - Rimuovere il livello dal proprio nickname\n\n***Nota:*** *I nickname non possono superare i 32 caratteri.*"""
         # Vars
         message = ctx.message;
         guild   = message.guild;
