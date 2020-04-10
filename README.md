@@ -1,6 +1,6 @@
 <p align="center">
 <img src="https://i.imgur.com/o558Qnq.png" align="center">
-<b>The following plugins are only used for the use of <a href="https://github.com/kyb3r/modmail">ModMail</a>.</b>
+<br><b>The following plugins are only used for the use of <a href="https://github.com/kyb3r/modmail">ModMail</a>.</b>
 <br><br><img src="https://img.shields.io/badge/python-v3.7-12a4ff?style=for-the-badge&logo=python&logoColor=12a4ff">
 <img src="https://img.shields.io/badge/library-discord%2Epy-ffbb10?style=for-the-badge">
 <a href="http://doge.mit-license.org"><img src="https://img.shields.io/github/license/sskewer/modmail?style=for-the-badge"></a>
