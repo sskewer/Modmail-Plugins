@@ -13,8 +13,10 @@
 
 ***
 
-<p align="center"><strong>Plugin List</strong>
-This table provides information about each plugin: name, usage and last update and installation command.</p>
+<p align="center"><strong>PLUGIN LIST</strong>
+<br>This table provides information about each plugin: name, usage and last update and installation command.
+</p>
+
 |    Name   |   Usage   |  Last update |
 |     --    |     --    |       --     |
 |Power Level|Add your power level on Save the World (Fortnite) to your Discord nickname.| 10th April 2020|
