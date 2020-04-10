@@ -32,7 +32,7 @@ class PowerLevel(commands.Cog):
         channel = ctx.channel;
         error   = '**<@' + str(user_id) + '>, per favore inserisci un power level valido.**';
         # Check
-        if channel.id == 454274882688122880 or channel.id == 454274841047072768 or channel.id == 454268474534133762:
+        if channel.id == 454261608324268063 or channel.id == 454274882688122880 or channel.id == 454274841047072768 or channel.id == 454268474534133762:
           if content.isdigit():
               # Vars
               index  = int(content);
