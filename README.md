@@ -1,6 +1,6 @@
 ## **MODMAIL PLUGIN by Skewer**
 [![License](http://img.shields.io/:license-mit-blue.svg)](http://doge.mit-license.org)
-<br><br>The following plugins are only used for the use of [ModMail](https://github.com/kyb3r/modmail).
+<br><br>**The following plugins are only used for the use of [ModMail](https://github.com/kyb3r/modmail).**
 
 
 ### Plugin List
