@@ -5,7 +5,7 @@
 [![License](https://img.shields.io/github/license/sskewer/modmail?style=for-the-badge)](http://doge.mit-license.org)
 <br>![Discord](https://img.shields.io/badge/discord-Simo%232471-7289DA?style=for-the-badge&logo=Discord&logoColor=7289DA)
 ![GitHub](https://img.shields.io/badge/github-sskewer-181717?style=for-the-badge&logo=github)
-[![Twitch](https://img.shields.io/badge/twitch-mrskewer-9146FF?style=for-the-badge&logo=Twitch&logoColor=9146FF)](https://www.twitch.tv/mrskewer)
+![Twitch](https://img.shields.io/badge/twitch-mrskewer-9146FF?style=for-the-badge&logo=Twitch&logoColor=9146FF)
 <br>[![Donate](https://img.shields.io/badge/paypal-donate-00457C?style=for-the-badge&logo=paypal)](https://streamlabs.com/mrskewer/tip)
 
 
