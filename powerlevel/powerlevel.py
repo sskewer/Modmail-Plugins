@@ -11,7 +11,7 @@ def setup(maxLevel):
     levels[i] = " [⚡" + str(i) + "]";
  
 def getNick(nick:str):
-  form_nick = re.sub(r'\[⚡\d+\]', '', nick)
+  form_nick = re.sub(r'\s\[⚡\d+\]', '', nick)
   if form_nick:
     return form_nick;
   else:
@@ -44,7 +44,7 @@ class PowerLevel(commands.Cog):
                   tag = levels[index];
                   # New Nickname
                   original_nick = getNick(author.display_name)
-                  await member.edit(nick=original_nick + tag)
+                  await member.edit(nick=original_nick + ' ' + tag)
                   # Reaction
                   await ctx.message.add_reaction('✅')
               else:
