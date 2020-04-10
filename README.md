@@ -1,3 +1,4 @@
+<div align="center">
 ## **MODMAIL PLUGIN by Skewer**
 **The following plugins are only used for the use of [ModMail](https://github.com/kyb3r/modmail).**
 <br><br>![Python](https://img.shields.io/badge/python-v3.7-12a4ff?style=for-the-badge&logo=python&logoColor=12a4ff)
