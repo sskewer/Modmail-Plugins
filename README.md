@@ -8,7 +8,7 @@
 [![Twitch](https://img.shields.io/badge/twitch-mrskewer-9146FF?style=for-the-badge&logo=Twitch&logoColor=9146FF)](https://www.twitch.tv/mrskewer)
 <br>[![Donate](https://img.shields.io/badge/paypal-donate-00457C?style=for-the-badge&logo=paypal)](https://streamlabs.com/mrskewer/tip)
 
----
+***
 
 ### Plugin List
 This table provides information about each plugin: name, usage and last update and installation command.
