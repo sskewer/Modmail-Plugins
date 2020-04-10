@@ -13,7 +13,7 @@
 
 ***
 
-<p align="center"><strong>PLUGIN LIST</strong>
+<p align="center"><img src="https://github.com/sskewer/modmail/blob/master/Plugins_List_Image.png?raw=true" align="center">
 <br>This table provides information about each plugin: name, usage and last update and installation command.
 </p>
 
