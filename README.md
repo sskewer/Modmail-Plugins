@@ -1,6 +1,6 @@
 ## **MODMAIL PLUGIN by Skewer**
 **The following plugins are only used for the use of [ModMail](https://github.com/kyb3r/modmail).**
-<br><br>[![License](https://img.shields.io/github/license/sskewer/modmail)](http://doge.mit-license.org)
+<br><br>[![License](https://img.shields.io/github/license/sskewer/modmail?style=for-the-badge&logo=appveyor)](http://doge.mit-license.org)
 
 
 ### Plugin List
