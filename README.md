@@ -1,5 +1,6 @@
 <p align="center">
 <strong>MODMAIL PLUGIN by Skewer</strong><br>
+<font size="3" color="red">This is some text!</font>
 <strong>The following plugins are only used for the use of <a href="https://github.com/kyb3r/modmail">ModMail</a>.</strong>
 <br><br><img src="https://img.shields.io/badge/python-v3.7-12a4ff?style=for-the-badge&logo=python&logoColor=12a4ff">
 <img src="https://img.shields.io/badge/library-discord%2Epy-ffbb10?style=for-the-badge">
@@ -18,5 +19,3 @@ This table provides information about each plugin: name, usage and last update a
 |    Name   |   Usage   |  Last update |
 |     --    |     --    |       --     |
 |Power Level|Add your power level on Save the World (Fortnite) to your Discord nickname.| 10th April 2020|
-
-<font size="3" color="red">This is some text!</font>
