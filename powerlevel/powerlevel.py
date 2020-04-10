@@ -18,7 +18,7 @@ def getNick(nick:str):
     return None;
  
 # Setup
-setup(140)
+setup(131)
  
 class PowerLevel(commands.Cog):
     def __init__(self, bot):
@@ -26,7 +26,7 @@ class PowerLevel(commands.Cog):
      
     @commands.command()
     async def powerlevel(self, ctx, *, content:str):
-        """Assegnare il livello di Potenza STW al proprio nickname.\n\n**Utilizzo**\n**`/powerlevel <livello>`** - Aggiungere il livello al proprio nickname\n**`/powerlevel reset`** - Rimuovere il livello dal proprio nickname\n\n**Esempi**\n**`/powerlevel 140`** - Nickname [\\⚡140]\n**`/powerlevel reset`** - Nickname\n\n**Accorgimenti**\n- I nickname non possono superare i 32 caratteri.\n- Utilizzare  in <#454261608324268063>, <#454274841047072768> o <#454274882688122880>."""
+        """Assegnare il livello di Potenza STW al proprio nickname.\n\n**Utilizzo**\n**`/powerlevel <livello>`** - Aggiungere il livello al proprio nickname\n**`/powerlevel reset`** - Rimuovere il livello dal proprio nickname\n\n**Esempi**\n**`/powerlevel 131`** - Nickname [\\⚡131]\n**`/powerlevel reset`** - Nickname\n\n**Accorgimenti**\n- I nickname non possono superare i 32 caratteri.\n- Utilizzare  in <#454261608324268063>, <#454274841047072768> o <#454274882688122880>."""
         # Vars
         message = ctx.message;
         guild   = message.guild;
@@ -41,7 +41,7 @@ class PowerLevel(commands.Cog):
               index  = int(content);
               member  = guild.get_member(user_id)
               # New Nickname
-              if index > 0 and index <= 140:
+              if index > 0 and index <= 131:
                   tag = levels[index];
                   # New Nickname
                   original_nick = getNick(author.display_name)
