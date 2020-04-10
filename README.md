@@ -16,7 +16,7 @@
 <p align="center"><img src="https://github.com/sskewer/modmail/blob/master/Plugins_List_Image.png?raw=true" align="center">
 <br><br><strong><i>This table provides information about each plugin: name, usage and last update and installation command.</strong></i>
 </p>
-
+<br>
 
 |    Name   |   Usage   |  Last update |
 |     --    |     --    |       --     |
