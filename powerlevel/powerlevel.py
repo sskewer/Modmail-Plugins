@@ -26,6 +26,7 @@ class PowerLevel(commands.Cog):
      
     @commands.command()
     async def powerlevel(self, ctx, *, content:str):
+        """Test \n **Test**"""
         # Vars
         message = ctx.message;
         guild   = message.guild;
