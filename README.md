@@ -19,6 +19,4 @@ This table provides information about each plugin: name, usage and last update a
 |     --    |     --    |       --     |
 |Power Level|Add your power level on Save the World (Fortnite) to your Discord nickname.| 10th April 2020|
 
-<p style = "font-family:georgia,garamond,serif;font-size:16px;font-style:italic;">
-         This is demo text
-      </p>
+<font size="3" color="red">This is some text!</font>
