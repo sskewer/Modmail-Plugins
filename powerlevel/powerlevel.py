@@ -11,7 +11,7 @@ def setup(maxLevel):
     levels[i] = " [⚡" + str(i) + "]";
  
 def getNick(nick:str):
-  form_nick = re.sub(r'\[⚡\d+\]', ' ', nick)
+  form_nick = re.sub(r'\[⚡\d+\]', '', nick)
   if form_nick:
     return form_nick;
   else:
