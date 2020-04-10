@@ -1,5 +1,5 @@
 <p align="center">
-<img src="https://github.com/sskewer/modmail/blob/master/ModMail_Plugins.png?raw=true" align="center">
+<img src="https://github.com/sskewer/modmail/blob/master/ModMail_Plugins_Image.png?raw=true" align="center">
 <br><br><strong><i>The following plugins are all destined for the use with <a href="https://github.com/kyb3r/modmail">ModMail</a>.</strong></i>
 <br><br><img src="https://img.shields.io/badge/python-v3.7-12a4ff?style=for-the-badge&logo=python&logoColor=12a4ff">
 <img src="https://img.shields.io/badge/library-discord%2Epy-ffbb10?style=for-the-badge">
