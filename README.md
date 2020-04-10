@@ -8,7 +8,7 @@
 <img src="https://img.shields.io/badge/github-sskewer-181717?style=for-the-badge&logo=github">
 <a href="https://www.twitch.tv/mrskewer"><img src="https://img.shields.io/badge/twitch-mrskewer-9146FF?style=for-the-badge&logo=Twitch&logoColor=9146FF"></a>
 <br><a href="https://streamlabs.com/mrskewer/tip"><img src="https://img.shields.io/badge/paypal-donate-00457C?style=for-the-badge&logo=paypal"></a>
-<a href="http://doge.mit-license.org"><img src="https://img.shields.io/badge/support-click%20here-168DE2?style=for-the-badge&logo=mail%2Eru"></a>
+<a href="http://doge.mit-license.org"><img src="https://img.shields.io/badge/support-click%20here-ff4800?style=for-the-badge&logo=mail%2Eru&logoColor=ff4800"></a>
 </p>
 
 ***
