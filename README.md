@@ -1,7 +1,7 @@
 ## **MODMAIL PLUGIN by Skewer**
 **The following plugins are only used for the use of [ModMail](https://github.com/kyb3r/modmail).**
 <br><br>![Python](https://img.shields.io/badge/python-v3.7-12a4ff?style=for-the-badge&logo=python&logoColor=12a4ff)
-![Library](https://img.shields.io/badge/library-discord%2Epy-ffbb00?style=for-the-badge)
+![Library](https://img.shields.io/badge/library-discord%2Epy-ffbb10?style=for-the-badge)
 [![License](https://img.shields.io/github/license/sskewer/modmail?style=for-the-badge)](http://doge.mit-license.org)
 <br>![Discord](https://img.shields.io/badge/discord-Simo%232471-7289DA?style=for-the-badge&logo=Discord&logoColor=7289DA)
 ![GitHub](https://img.shields.io/badge/github-sskewer-181717?style=for-the-badge&logo=github)
