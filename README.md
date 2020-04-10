@@ -6,4 +6,4 @@ The following plugins are only used for the use of [ModMail](https://github.com/
 
 |    Name   |   Usage   |
 |    :--    |    --:    |
-|  Power Level  |  testo 2  |
+|  Power Level  |  Add your power level on Save the World (Fortnite) to your Discord nickname.  |
