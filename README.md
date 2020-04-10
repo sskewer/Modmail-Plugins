@@ -19,4 +19,4 @@
 
 |    Name   |   Usage   |  Last update |
 |     --    |     --    |       --     |
-|Power Level|Add your power level on Save the World (Fortnite) to your Discord username or nickname.| 10th April 2020|
+|Power Level|Add your power level on Save the World (Fortnite STW) to your Discord username or nickname.| 10th April 2020|
