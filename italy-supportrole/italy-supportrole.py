@@ -52,7 +52,7 @@ class SupportRoleManagent(commands.Cog):
         # Guild Members Check
         for user in guild.members:
             if role in user.roles:
-                list = list + '<@' + str(user.id) + '> (`' + str(user.id) + '`)\n'
+                list = list + str(user.name) + ' (`' + str(user.id) + '`)\n'
         # List Message
         embed.add_field(name="Utenti", value=list, inline=False)
         await ctx.send(embed=embed)
