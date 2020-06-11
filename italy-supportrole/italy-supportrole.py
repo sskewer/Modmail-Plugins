@@ -47,12 +47,12 @@ class SupportRoleManagent(commands.Cog):
         role = get(guild.roles, id=683333884871573534)
         list = ''
         # Embed
-        embed = discord.Embed(description="<a:fnit_kyleyes:615890094423015435>  **LISTA UTENTI**", color=0xff3b3b)
+        embed = discord.Embed(description="📝 **| LISTA UTENTI**", color=0xff3b3b)
         embed.add_field(name="Ruolo", value="<@&683333884871573534>", inline=False)
         # Guild Members Check
         for user in guild.members:
             if role in user.roles:
-                list = list + str(user.name) + ' (`' + str(user.id) + '`)\n'
+                list = list + '**' + str(user.name) + '** (`' + str(user.id) + '`)\n'
         # List Message
         embed.add_field(name="Utenti", value=list, inline=False)
         await ctx.send(embed=embed)
