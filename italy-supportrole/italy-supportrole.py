@@ -41,7 +41,7 @@ class SupportRoleManagent(commands.Cog):
     @supportrole.command(name="list")
     @commands.has_any_role(659513332218331155, 676408167063879715, 720221658501087312)
     async def listsupport(self, ctx: Context):
-        """Visionare la lista degli utenti che hanno il ruolo <@&683333884871573534>"""
+        """Visionare la lista degli utenti con il ruolo <@&683333884871573534>"""
     
 def setup(bot):
     bot.add_cog(SupportRoleManagent(bot))
