@@ -17,9 +17,9 @@ class SupportRoleManagent(commands.Cog):
         await ctx.send_help(ctx.command)
 
     @supportrole.command(name="give")
-    """Assegnare il ruolo <@&683333884871573534> ad un utente"""
     @commands.has_any_role(659513332218331155, 676408167063879715, 720221658501087312)
     async def givesupport(self, ctx: Context, user: discord.Member):
+        """Assegnare il ruolo <@&683333884871573534> ad un utente"""
         role = get(user.guild.roles, id=683333884871573534)
         if role in user.roles:
             await ctx.send(f"<a:fnit_thinking:688113285186191543> Hey <@{ctx.author.id}>, il ruolo <@&{role.id}> è già stato assegnato a **{user.name}**.")
@@ -28,9 +28,9 @@ class SupportRoleManagent(commands.Cog):
             await ctx.send(f"<a:fnit_mvp:688113283357868073> Hey <@{ctx.author.id}>, il ruolo <@&{role.id}> è stato assegnato correttamente a **{user.name}**.")
     
     @supportrole.command(name="remove")
-    """Rimuovere il ruolo <@&683333884871573534> ad un utente"""
     @commands.has_any_role(659513332218331155, 676408167063879715, 720221658501087312)
     async def removesupport(self, ctx: Context, user: discord.Member):
+        """Rimuovere il ruolo <@&683333884871573534> ad un utente"""
         role = get(user.guild.roles, id=683333884871573534)
         if role in user.roles:
             await user.remove_roles(role)
