@@ -44,7 +44,7 @@ class SupportRoleManagent(commands.Cog):
         """Visionare la lista degli utenti con il ruolo <@&683333884871573534>"""
         # Vars
         guild = ctx.message.guild
-        role = get(user.guild.roles, id=683333884871573534)
+        role = get(guild.roles, id=683333884871573534)
         list = ''
         # Embed
         embed = discord.Embed(description="<a:fnit_kyleyes:615890094423015435> **Lista Utenti**", color=0x00e3ff)
