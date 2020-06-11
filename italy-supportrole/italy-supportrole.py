@@ -47,7 +47,7 @@ class SupportRoleManagent(commands.Cog):
         role = get(guild.roles, id=683333884871573534)
         list = ''
         # Embed
-        embed = discord.Embed(description="<a:fnit_kyleyes:615890094423015435> **Lista Utenti**", color=0x00e3ff)
+        embed = discord.Embed(description="<a:fnit_kyleyes:615890094423015435>  **LISTA UTENTI**", color=0xff3b3b)
         embed.add_field(name="Ruolo", value="<@&683333884871573534>", inline=False)
         # Guild Members Check
         for user in guild.members:
