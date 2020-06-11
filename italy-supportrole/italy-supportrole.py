@@ -13,7 +13,7 @@ class SupportRoleManagent(commands.Cog):
     @group(name="supportrole", invoke_without_command=True)
     @commands.has_any_role(659513332218331155, 676408167063879715, 720221658501087312)
     async def supportrole(self, ctx: Context) -> None:
-        """Assegnare o rimuovere il ruolo <@&683333884871573534> ad un utente"""
+        """Assegnare o rimuovere il ruolo <@&683333884871573534> ad un utente o vedere la lista degli utenti che hanno il ruolo."""
         await ctx.send_help(ctx.command)
 
     @supportrole.command(name="give")
@@ -37,6 +37,11 @@ class SupportRoleManagent(commands.Cog):
             await ctx.send(f"<a:fnit_mvp:688113283357868073> Hey <@{ctx.author.id}>, il ruolo <@&{role.id}> è stato rimosso correttamente a **{user.name}**.")
         else:
             await ctx.send(f"<a:fnit_thinking:688113285186191543> Hey <@{ctx.author.id}>, il ruolo <@&{role.id}> non è ancora stato assegnato a **{user.name}**.")
-
+    
+    @supportrole.command(name="list")
+    @commands.has_any_role(659513332218331155, 676408167063879715, 720221658501087312)
+    async def listsupport(self, ctx: Context):
+        """Visionare la lista degli utenti che hanno il ruolo <@&683333884871573534>"""
+    
 def setup(bot):
     bot.add_cog(SupportRoleManagent(bot))
