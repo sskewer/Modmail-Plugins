@@ -54,7 +54,10 @@ class SupportRoleManagent(commands.Cog):
             if role in user.roles:
                 list = list + '**' + str(user.name) + '** (`' + str(user.id) + '`)\n'
         # List Message
-        embed.add_field(name="Utenti", value=list, inline=False)
+        if len(list) == 0
+            embed.add_field(name="Utenti", value="Nessun utente ha questo ruolo", inline=False)
+        else
+            embed.add_field(name="Utenti", value=list, inline=False)
         await ctx.send(embed=embed)
         
 def setup(bot):
