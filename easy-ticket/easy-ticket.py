@@ -60,13 +60,13 @@ class TicketManagement(commands.Cog):
         embed2.add_field(name="Motivazione", value=reason, inline=False)
         # Vars
         guild = ctx.guild
-        userchannel = null
+        userchannel = None
         # Channel Check
         for channel in guild.channels:
                 if channel.name == f"ticket-{user.name}":
                         userchannel = channel
         # Ticket Close
-        if userchannel != null:
+        if userchannel != None:
                 await userchannel.delete()
                 await ctx.send(f"**Ticket chiuso per {user.mention} (`{str(user.id)}`) con motivazione: `{reason}`**")
                 await ctx.author.send(embed=embed2)
