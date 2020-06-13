@@ -26,9 +26,10 @@ class TicketManagement(commands.Cog):
         embed.set_footer(text=ctx.guild.name, icon_url=ctx.guild.icon_url)
         embed.add_field(name="**F.A.Q.**", value=f"Se hai bisogno delle domande e risposte frequenti, [clicca qui](https://www.epicgames.com/help/it/fortnite-c75).", inline=False)
         embed.add_field(name="**Supporto Tecnico", value=f"Se hai bisogno di aiuto in gioco, contatta l'assistenza [cliccando qui](https://www.epicgames.com/help/it/contact-us?metadata=eyJoaXN0b3J5TGlua3MiOlt7InVybCI6Ii9mb3J0bml0ZS1jNzUiLCJ0aXRsZSI6IkZvcnRuaXRlIn1dLCJjYXRlZ29yeUlkIjo3NX0%3D).", inline=False)
+        #Vars
         mod = get(ctx.guild.roles, id=454262524955852800)
-	rvindertech = get(ctx.guild.roles, id=720221658501087312)
-	vindertech = get(ctx.guild.roles, id=659513332218331155)
+        rvindertech = get(ctx.guild.roles, id=720221658501087312)
+        vindertech = get(ctx.guild.roles, id=659513332218331155)
         category = get(ctx.guild.channels, id=683363228931194899)
 	# Ticket Open
         channel = await guild.create_text_channel(f"ticket-{user.name}", category=category)
