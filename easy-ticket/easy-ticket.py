@@ -83,7 +83,7 @@ class TicketManagement(commands.Cog):
         embed3.set_footer(text=ctx.guild.name, icon_url=ctx.guild.icon_url)
         embed3.add_field(name="Staffer", value=f"{ctx.author.mention} | ID: {ctx.author.id}", inline=False)
         embed3.add_field(name="Messaggio", value=content, inline=False)
-        embed4 = discord.Embed(title="**DM Inviato con successo**", color=discord.Color.blue(), timestamp=datetime.datetime.utcnow())
+        embed4 = discord.Embed(title="**DM Inviato Correttamente**", color=discord.Color.blue(), timestamp=datetime.datetime.utcnow())
         embed4.set_author(name=user.name, icon_url=user.avatar_url)
         embed4.set_footer(text=ctx.guild.name, icon_url=ctx.guild.icon_url)
         embed4.add_field(name="Utente", value=f"{user.mention} | ID: {user.id}", inline=False)
@@ -93,7 +93,7 @@ class TicketManagement(commands.Cog):
                 await user.send(embed=embed3)
                 await ctx.send(embed=embed4)
         except:
-                ctx.send(f"L'utente {user.mention} (`{str(user.id)}`) non accetta messaggi privati (DM).")
+                await ctx.send(f"L'utente {user.mention} (`{str(user.id)}`) non accetta messaggi privati (DM).")
         
 def setup(bot):
     bot.add_cog(TicketManagement(bot))
