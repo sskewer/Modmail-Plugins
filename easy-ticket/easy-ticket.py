@@ -35,7 +35,7 @@ class TicketManagement(commands.Cog):
         category = get(ctx.guild.channels, id=683363228931194899)
         # Channel Check
         for channel in ctx.guild.channels:
-                if channel.name === f"ticket-{user.name}":
+                if channel.name == f"ticket-{user.name}":
                         await ctx.send(f"L'utente {user.mention} (`{str(user.id)}`) ha già un ticket aperto.")
                         await sys.exit()
 	# Ticket Open
@@ -62,7 +62,7 @@ class TicketManagement(commands.Cog):
         guild = ctx.guild
         # Channel Check
         for channel in guild.channels:
-                if channel.name === f"ticket-{user.name}":
+                if channel.name == f"ticket-{user.name}":
                         userchannel = channel
         # Ticket Close
         if userchannel:
