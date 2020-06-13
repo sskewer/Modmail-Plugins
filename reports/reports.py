@@ -20,7 +20,7 @@ class Report(commands.Cog):
         await self.db.find_one_and_update({"_id": "config"}, {"$set": {"report_channel": channel.id}}, upsert=True)
         
         embed = discord.Embed(color=discord.Color.blue(), timestamp=datetime.datetime.utcnow())
-        embed.add_field(name="Set Channel", value=f"Canale delle segnalazioni correttamente impostato su {channel.mention}", inline=False)
+        embed.add_field(name="Configurazione Canale", value=f"Canale delle segnalazioni correttamente impostato su {channel.mention}", inline=False)
         
         await ctx.send(embed=embed)
 
@@ -31,7 +31,7 @@ class Report(commands.Cog):
         await self.db.find_one_and_update({"_id": "config"}, {"$set": {"report_mention": mention}}, upsert=True)
         
         embed = discord.Embed(color=discord.Color.blue(), timestamp=datetime.datetime.utcnow())
-        embed.add_field(name="Changed Mention", value=f"Menzioni delle segnalazioni correttamente impostato su {mention}", inline=False)
+        embed.add_field(name="Configurazioni Menzioni", value=f"Menzioni delle segnalazioni correttamente impostato su {mention}", inline=False)
         
         await ctx.send(embed=embed)
 
@@ -56,8 +56,8 @@ class Report(commands.Cog):
         embed.add_field(name="Motivazione", value=reason, inline=False)
 
         await setchannel.send(report_mention, embed=embed)
-        await ctx.author.send(f"Hai segnalato con successo **{user.name}** con la seguente motivazione: `{reason}`. Grazie per la collaborazione!")
         await ctx.delete()
+        await ctx.author.send(f"Hai segnalato con successo **{user.name}** con la seguente motivazione: `{reason}`. Grazie per la collaborazione!")
         
 def setup(bot):
     bot.add_cog(Report(bot))
