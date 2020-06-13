@@ -54,10 +54,18 @@ class Report(commands.Cog):
         embed.add_field(name="Segnalato da:", value=f"{ctx.author.mention} | ID: {ctx.author.id}", inline=False)
         embed.add_field(name="Canale", value=ctx.channel.mention, inline=False)
         embed.add_field(name="Motivazione", value=reason, inline=False)
+        
+        embed2 = discord.Embed(color=discord.Color.red(), timestamp=datetime.datetime.utcnow())
+        embed2.set_author(name=ctx.author.name, icon_url=ctx.author.avatar_url)
+        embed2.set_footer(name=ctx.guild.name, icon_url=ctx.author.icon_url)
+        
+        embed2.add_field(name="Utente segnalato", value=f"{user.mention} | ID: {user.id}", inline=False)
+        embed2.add_field(name="Canale", value=ctx.channel.mention, inline=False)
+        embed2.add_field(name="Motivazione", value=reason, inline=False)
 
         await setchannel.send(report_mention, embed=embed)
         await ctx.message.delete()
-        await ctx.author.send(f"Hai segnalato con successo **{user.name}** con la seguente motivazione: `{reason}`. Grazie per la collaborazione!")
+        await ctx.author.send("**Riepilogo Segnalazione**", embed=embed2)
         
 def setup(bot):
     bot.add_cog(Report(bot))
