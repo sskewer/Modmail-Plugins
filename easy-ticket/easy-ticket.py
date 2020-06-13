@@ -34,10 +34,10 @@ class TicketManagement(commands.Cog):
 	# Ticket Open
         channel = await guild.create_text_channel(f"ticket-{user.name}", category=category)
         channel.set_permissions(ctx.guild.default_role, read_messages=False, send_messages=False)
-	channel.set_permissions(mod, read_messages=True, send_messages=True, manage_messages=True, embed_links=True, attach_files=True)
-	channel.set_permissions(rvindertech, read_messages=True, send_messages=True, manage_messages=True, embed_links=True, attach_files=True)
-	channel.set_permissions(vindertech, read_messages=True, send_messages=True, manage_messages=True, embed_links=True, attach_files=True)
-	channel.set_permissions(user, read_messages=True, send_messages=True, embed_links=True, attach_files=True)
+        channel.set_permissions(mod, read_messages=True, send_messages=True, manage_messages=True, embed_links=True, attach_files=True)
+        channel.set_permissions(rvindertech, read_messages=True, send_messages=True, manage_messages=True, embed_links=True, attach_files=True)
+        channel.set_permissions(vindertech, read_messages=True, send_messages=True, manage_messages=True, embed_links=True, attach_files=True)
+        channel.set_permissions(user, read_messages=True, send_messages=True, embed_links=True, attach_files=True)
         channel.send(embed=embed)
         
 def setup(bot):
