@@ -1,3 +1,4 @@
+import datetime
 import discord
 from discord import Embed, Guild, Member, Role
 from discord.ext import commands
@@ -39,6 +40,7 @@ class TicketManagement(commands.Cog):
         channel.set_permissions(vindertech, read_messages=True, send_messages=True, manage_messages=True, embed_links=True, attach_files=True)
         channel.set_permissions(user, read_messages=True, send_messages=True, embed_links=True, attach_files=True)
         channel.send(embed=embed)
+	ctx.send(f"**Ticket aperto per {user.mention} (`{user.id}`)**")
         
 def setup(bot):
     bot.add_cog(TicketManagement(bot))
