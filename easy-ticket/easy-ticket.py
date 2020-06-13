@@ -50,7 +50,7 @@ class TicketManagement(commands.Cog):
         
     @ticket.command(name="close")
     @commands.has_any_role(659513332218331155, 676408167063879715, 720221658501087312)
-    async def open(self, ctx: Context, user: discord.Member, *, reason: str):
+    async def close(self, ctx: Context, user: discord.Member, *, reason: str):
         """Chiudere un ticket per l'utente specificato"""
         # Embed
         embed2 = discord.Embed(title="**Richiesta Supporto Chiusa**", color=discord.Color.green(), timestamp=datetime.datetime.utcnow())
