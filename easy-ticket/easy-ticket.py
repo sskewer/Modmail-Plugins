@@ -15,7 +15,7 @@ class TicketManagement(commands.Cog):
     @group(name="ticket", invoke_without_command=True)
     @commands.has_any_role(659513332218331155, 676408167063879715, 720221658501087312)
     async def ticket(self, ctx: Context) -> None:
-        """Aprire e chiudere un ticket o inviare una guida per il Supporto Vindertech."""
+        """Aprire e chiudere un ticket o inviare un DM per il Supporto Vindertech."""
         await ctx.send_help(ctx.command)
 
     @ticket.command(name="open")
@@ -53,7 +53,7 @@ class TicketManagement(commands.Cog):
     async def close(self, ctx: Context, user: discord.Member, *, reason: str):
         """Chiudere un ticket per l'utente specificato"""
         # Embed
-        embed2 = discord.Embed(title="**Richiesta Supporto Chiusa**", color=discord.Color.green(), timestamp=datetime.datetime.utcnow())
+        embed2 = discord.Embed(title="**Richiesta Supporto Chiusa**", color=discord.Color.red(), timestamp=datetime.datetime.utcnow())
         embed2.set_author(name=user.name, icon_url=user.avatar_url)
         embed2.set_footer(text=ctx.guild.name, icon_url=ctx.guild.icon_url)
         embed2.add_field(name="Staffer", value=f"{ctx.author.mention} | ID: {ctx.author.id}", inline=False)
@@ -72,6 +72,28 @@ class TicketManagement(commands.Cog):
                 await ctx.author.send(embed=embed2)
         else:
                 await ctx.send(f"L'utente {user.mention} (`{str(user.id)}`) non possiede nessun ticket aperto.")
+                
+    @ticket.command(name="dm")
+    @commands.has_any_role(659513332218331155, 676408167063879715, 720221658501087312)
+    async def dm(self, ctx: Context, user: discord.Member, *, content: str):
+        """Inviare un DM all'utente specificato"""
+        # Embed
+        embed3 = discord.Embed(title="**Notifica Richiesta Supporto**", color=discord.Color.blue(), timestamp=datetime.datetime.utcnow())
+        embed3.set_author(name=ctx.author.name, icon_url=ctx.author.avatar_url)
+        embed3.set_footer(text=ctx.guild.name, icon_url=ctx.guild.icon_url)
+        embed3.add_field(name="Staffer", value=f"{ctx.author.mention} | ID: {ctx.author.id}", inline=False)
+        embed3.add_field(name="Messaggio", value=content, inline=False)
+        embed4 = discord.Embed(title="**DM Inviato con successo**", color=discord.Color.blue(), timestamp=datetime.datetime.utcnow())
+        embed4.set_author(name=user.name, icon_url=user.avatar_url)
+        embed4.set_footer(text=ctx.guild.name, icon_url=ctx.guild.icon_url)
+        embed4.add_field(name="Utente", value=f"{user.mention} | ID: {user.id}", inline=False)
+        embed4.add_field(name="Messaggio", value=content, inline=False)
+        # DM
+        try:
+                await user.send(embed=embed3)
+                await ctx.send(embed=embed4)
+        except:
+                ctx.send(f"L'utente {user.mention} (`{str(user.id)}`) non accetta messaggi privati (DM).")
         
 def setup(bot):
     bot.add_cog(TicketManagement(bot))
