@@ -60,7 +60,7 @@ class TicketManagement(commands.Cog):
         embed2.add_field(name="Motivazione", value=reason, inline=False)
         # Vars
         guild = ctx.guild
-	userchannel = null
+        userchannel = null
         # Channel Check
         for channel in guild.channels:
                 if channel.name == f"ticket-{user.name}":
