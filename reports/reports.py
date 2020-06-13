@@ -56,7 +56,7 @@ class Report(commands.Cog):
         embed.add_field(name="Motivazione", value=reason, inline=False)
 
         await setchannel.send(report_mention, embed=embed)
-        await self.bot.delete_message(ctx.message)
+        await ctx.message.delete()
         await ctx.author.send(f"Hai segnalato con successo **{user.name}** con la seguente motivazione: `{reason}`. Grazie per la collaborazione!")
         
 def setup(bot):
