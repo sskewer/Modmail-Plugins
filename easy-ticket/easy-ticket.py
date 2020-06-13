@@ -33,7 +33,7 @@ class TicketManagement(commands.Cog):
         vindertech = get(ctx.guild.roles, id=659513332218331155)
         category = get(ctx.guild.channels, id=683363228931194899)
 	# Ticket Open
-        channel = await guild.create_text_channel(f"ticket-{user.name}", category=category)
+        channel = await ctx.guild.create_text_channel(f"ticket-{user.name}", category=category)
         channel.set_permissions(ctx.guild.default_role, read_messages=False, send_messages=False)
         channel.set_permissions(mod, read_messages=True, send_messages=True, manage_messages=True, embed_links=True, attach_files=True)
         channel.set_permissions(rvindertech, read_messages=True, send_messages=True, manage_messages=True, embed_links=True, attach_files=True)
