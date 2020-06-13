@@ -57,7 +57,7 @@ class Report(commands.Cog):
         
         embed2 = discord.Embed(color=discord.Color.red(), timestamp=datetime.datetime.utcnow())
         embed2.set_author(name=ctx.author.name, icon_url=ctx.author.avatar_url)
-        embed2.set_footer(name=ctx.guild.name, icon_url=ctx.author.icon_url)
+        embed2.set_footer(name=ctx.guild.name, icon_url=ctx.guild.icon_url)
         
         embed2.add_field(name="Utente segnalato", value=f"{user.mention} | ID: {user.id}", inline=False)
         embed2.add_field(name="Canale", value=ctx.channel.mention, inline=False)
