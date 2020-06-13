@@ -55,9 +55,9 @@ class Report(commands.Cog):
         embed.add_field(name="Canale", value=ctx.channel.mention, inline=False)
         embed.add_field(name="Motivazione", value=reason, inline=False)
         
-        embed2 = discord.Embed(color=discord.Color.red(), timestamp=datetime.datetime.utcnow())
+        embed2 = discord.Embed(title="**Riepilogo Segnalazione**", color=discord.Color.red(), timestamp=datetime.datetime.utcnow())
         embed2.set_author(name=ctx.author.name, icon_url=ctx.author.avatar_url)
-        embed2.set_footer(name=ctx.guild.name, icon_url=ctx.guild.icon_url)
+        embed2.set_footer(text=ctx.guild.name, icon_url=ctx.guild.icon_url)
         
         embed2.add_field(name="Utente segnalato", value=f"{user.mention} | ID: {user.id}", inline=False)
         embed2.add_field(name="Canale", value=ctx.channel.mention, inline=False)
@@ -65,7 +65,7 @@ class Report(commands.Cog):
 
         await setchannel.send(report_mention, embed=embed)
         await ctx.message.delete()
-        await ctx.author.send("**Riepilogo Segnalazione**", embed=embed2)
+        await ctx.author.send(embed=embed2)
         
 def setup(bot):
     bot.add_cog(Report(bot))
