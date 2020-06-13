@@ -67,8 +67,8 @@ class TicketManagement(commands.Cog):
         # Ticket Close
         if userchannel:
                 userchannel.delete()
-                await ctx.author.send(embed=embed2)
                 await ctx.send(f"**Ticket chiuso per {user.mention} (`{str(user.id)}`) con motivazione: `{reason}`**")
+                await ctx.author.send(embed=embed2)
         else:
                 await ctx.send(f"L'utente {user.mention} (`{str(user.id)}`) non possiede nessun ticket aperto.")
         
