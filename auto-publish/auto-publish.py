@@ -12,10 +12,10 @@ class AutoPublishPlugin(commands.Cog):
 
     @commands.Cog.listener()
     async def on_message(self, message):
-      if message.channel.id == 721755696118628402 and message.author.id == 625385492438974502:
-        print("AUTOPUBLISH: Message to publish detected")
-        await message.publish()
-        print("AUTOPUBLISH: Message published")
+      # if message.channel.id == 721755696118628402 and message.author.id == 625385492438974502:
+      print("AUTOPUBLISH: Message to publish detected")
+        # await message.publish()
+        # print("AUTOPUBLISH: Message published")
 
 def setup(bot):
     bot.add_cog(AutoPublishPlugin(bot))
