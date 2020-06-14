@@ -68,12 +68,12 @@ class TicketManagement(commands.Cog):
                 if channel.name == f"ticket-{user.name}" and channel.topic == f"User ID: {str(user.id)}":
                         userchannel = channel
         # Ticket Close
-        if userchannel != None:
+        if userchannel == None:
+                await ctx.send(f"L'utente {user.mention} (`{str(user.id)}`) non possiede nessun ticket aperto.")
+        else:
                 await userchannel.delete()
                 await ctx.send(f"**Ticket chiuso per {user.mention} (`{str(user.id)}`) con motivazione: `{reason}`**")
                 await ctx.author.send(embed=embed2)
-        else:
-                await ctx.send(f"L'utente {user.mention} (`{str(user.id)}`) non possiede nessun ticket aperto.")
                 
     @ticket.command(name="dm")
     @commands.has_any_role(659513332218331155, 676408167063879715, 720221658501087312)
