@@ -55,6 +55,9 @@ class Report(commands.Cog):
         embed.add_field(name="Canale", value=ctx.channel.mention, inline=False)
         embed.add_field(name="Motivazione", value=reason, inline=False)
         
+        if ctx.message.attachments.url != Null:
+            embed.add_image(ctx.message.attachments.url)
+        
         embed2 = discord.Embed(title="**Riepilogo Segnalazione**", color=discord.Color.red(), timestamp=datetime.datetime.utcnow())
         embed2.set_author(name=ctx.author.name, icon_url=ctx.author.avatar_url)
         embed2.set_footer(text=ctx.guild.name, icon_url=ctx.guild.icon_url)
