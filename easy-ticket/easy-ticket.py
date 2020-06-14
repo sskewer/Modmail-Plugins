@@ -92,8 +92,8 @@ class TicketManagement(commands.Cog):
                 print(f"Ticket Channel detected for {user.name}")
                 await userchannel.delete()
                 await ctx.send(f"**Ticket chiuso per {user.mention} (`{str(user.id)}`) con motivazione: `{reason}`**")
-                await ctx.author.send(embed=embed2)
                 await channel_log.send(embed=embed3)
+                await user.send(embed=embed2)
                 
     @ticket.command(name="dm")
     @commands.has_any_role(659513332218331155, 676408167063879715, 720221658501087312)
