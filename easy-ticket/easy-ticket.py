@@ -45,7 +45,7 @@ class TicketManagement(commands.Cog):
                 await channel.set_permissions(mod, read_messages=True, send_messages=True, manage_messages=True, embed_links=True, attach_files=True)
                 await channel.set_permissions(rvindertech, read_messages=True, send_messages=True, manage_messages=True, embed_links=True, attach_files=True)
                 await channel.set_permissions(vindertech, read_messages=True, send_messages=True, manage_messages=True, embed_links=True, attach_files=True)
-                await channel.set_permissions(user, read_messages=True, send_messages=True, embed_links=True, attach_files=True)
+                await channel.set_permissions(user, read_messages=True, send_messages=True, embed_links=True, attach_files=True, read_message_history=True)
                 await channel.send(embed=embed)
                 await ctx.send(f"**Ticket aperto per {user.mention} (`{str(user.id)}`)**")
         else:
