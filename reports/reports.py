@@ -59,7 +59,7 @@ class Report(commands.Cog):
         if ctx.message.attachments != None:
             for attachment in ctx.message.attachments:
                 list = list + '[' + str(attachment.filename) + '](' + str(attachment.url) + ')\n'
-            await embed.add_field(name="Allegati", value=list, inline=False)
+            embed.add_field(name="Allegati", value=list, inline=False)
         
         embed2 = discord.Embed(title="**Riepilogo Segnalazione**", color=discord.Color.red(), timestamp=datetime.datetime.utcnow())
         embed2.set_author(name=ctx.author.name, icon_url=ctx.author.avatar_url)
