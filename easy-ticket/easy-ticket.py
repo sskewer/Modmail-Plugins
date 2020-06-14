@@ -35,9 +35,8 @@ class TicketManagement(commands.Cog):
         category = get(ctx.guild.channels, id=683363228931194899)
         # Channel Check
         for channel in ctx.guild.channels:
-                if channel.name == f"ticket-{user.name}":
-                        if channel.topic == f"User ID: {str(user.id)}":
-                                userchannel = channel
+                if channel.topic == f"User ID: {str(user.id)}":
+                        userchannel = channel
 	# Ticket Open
         if userchannel == None:
                 channel = await ctx.guild.create_text_channel(f"ticket-{user.name}", category=category, topic=f"User ID: {str(user.id)}")
@@ -66,9 +65,8 @@ class TicketManagement(commands.Cog):
         userchannel = None
         # Channel Check
         for channel in ctx.guild.channels:
-                if channel.name == f"ticket-{user.name}":
-                        if channel.topic == f"User ID: {str(user.id)}":
-                                userchannel = channel
+                if channel.topic == f"User ID: {str(user.id)}":
+                        userchannel = channel
         # Ticket Close
         if userchannel == None:
                 await ctx.send(f"L'utente {user.mention} (`{str(user.id)}`) non possiede nessun ticket aperto.")
