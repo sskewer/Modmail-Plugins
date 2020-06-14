@@ -56,9 +56,7 @@ class Report(commands.Cog):
         embed.add_field(name="Canale", value=ctx.channel.mention, inline=False)
         embed.add_field(name="Motivazione", value=reason, inline=False)
         
-        if ctx.message.attachments != None:
-            file = await ctx.message.attachments[0].to_file()
-            await setchannel.send(report_mention, embed=embed, file=file)
+        #if ctx.message.attachments != None:
         
         embed2 = discord.Embed(title="**Riepilogo Segnalazione**", color=discord.Color.red(), timestamp=datetime.datetime.utcnow())
         embed2.set_author(name=ctx.author.name, icon_url=ctx.author.avatar_url)
@@ -68,7 +66,7 @@ class Report(commands.Cog):
         embed2.add_field(name="Canale", value=ctx.channel.mention, inline=False)
         embed2.add_field(name="Motivazione", value=reason, inline=False)
         
-        # await setchannel.send(report_mention, embed=embed)
+        await setchannel.send(report_mention, embed=embed)
         await ctx.message.delete()
         await ctx.author.send(embed=embed2)
         
