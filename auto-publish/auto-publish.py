@@ -1,5 +1,8 @@
 import asyncio
 
+import contextlib
+from contextlib import suppress
+
 import discord
 from discord import Member, Role, TextChannel, DMChannel
 from discord.ext import commands
