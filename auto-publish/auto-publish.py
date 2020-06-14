@@ -16,6 +16,5 @@ class AutoPublishPlugin(commands.Cog):
         await message.publish()
         print("AUTOPUBLISH: Message published")
 
-
 def setup(bot):
     bot.add_cog(AutoPublishPlugin(bot))
