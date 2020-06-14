@@ -34,8 +34,8 @@ class TicketManagement(commands.Cog):
         vindertech = get(ctx.guild.roles, id=659513332218331155)
         category = get(ctx.guild.channels, id=683363228931194899)
         # Channel Check
-        for channel in ctx.guild.channels:
-                if channel.type == "text" and channel.topic == f"Ticket User ID: {str(user.id)}":
+        for channel in ctx.guild.text_channels:
+                if channel.topic == f"Ticket User ID: {str(user.id)}":
                         userchannel = channel
 	# Ticket Open
         if userchannel == None:
@@ -66,8 +66,8 @@ class TicketManagement(commands.Cog):
         guild = ctx.guild
         userchannel = None
         # Channel Check
-        for channel in ctx.guild.channels:
-                if channel.type == "text" and channel.topic == f"Ticket User ID: {str(user.id)}":
+        for channel in ctx.guild.text_channels:
+                if channel.topic == f"Ticket User ID: {str(user.id)}":
                         userchannel = channel
                         print(f"Ticket Channel detected for {user.name}")
         # Ticket Close
