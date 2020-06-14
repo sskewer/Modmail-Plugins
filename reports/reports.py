@@ -56,7 +56,7 @@ class Report(commands.Cog):
         embed.add_field(name="Motivazione", value=reason, inline=False)
         
         list = ''
-        if ctx.message.attachments != Null:
+        if ctx.message.attachments != None:
             for attachment in ctx.message.attachments:
                 list = list + '[' + str(attachment.filename) + '](' + str(attachment.url) + ')\n'
             await embed.add_field(name="Allegati", value=list, inline=False)
