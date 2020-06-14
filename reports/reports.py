@@ -55,10 +55,10 @@ class Report(commands.Cog):
         embed.add_field(name="Canale", value=ctx.channel.mention, inline=False)
         embed.add_field(name="Motivazione", value=reason, inline=False)
         
-        list = None
+        list = ''
         if ctx.message.attachments != None:
             for attachment in ctx.message.attachments:
-                list = list + f"[{attachment.filename}]({attachment.url})\n"
+                list = list + f"[{str(attachment.filename)}]({str(attachment.url)})\n"
             embed.add_field(name="Allegati", value=list, inline=False)
             await setchannel.send(report_mention, embed=embed, files=list)
         else:
