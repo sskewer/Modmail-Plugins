@@ -55,7 +55,7 @@ class Report(commands.Cog):
         embed.add_field(name="Canale", value=ctx.channel.mention, inline=False)
         embed.add_field(name="Motivazione", value=reason, inline=False)
         
-        list = ''
+        list = None
         if ctx.message.attachments != None:
             for attachment in ctx.message.attachments:
                 list = list + await attachment.to_file
