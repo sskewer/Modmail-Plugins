@@ -27,12 +27,18 @@ class TicketManagement(commands.Cog):
         embed.set_footer(text=ctx.guild.name, icon_url=ctx.guild.icon_url)
         embed.add_field(name="**F.A.Q.**", value=f"Se hai bisogno delle domande e risposte frequenti, [clicca qui](https://www.epicgames.com/help/it/fortnite-c75).", inline=False)
         embed.add_field(name="**Supporto Tecnico**", value=f"Se hai bisogno di aiuto in gioco, contatta l'assistenza [cliccando qui](https://www.epicgames.com/help/it/contact-us?metadata=eyJoaXN0b3J5TGlua3MiOlt7InVybCI6Ii9mb3J0bml0ZS1jNzUiLCJ0aXRsZSI6IkZvcnRuaXRlIn1dLCJjYXRlZ29yeUlkIjo3NX0%3D).", inline=False)
+        embed2 = discord.Embed(title="**Richiesta Supporto Aperta**", color=discord.Color.green(), timestamp=datetime.datetime.utcnow())
+        embed2.set_author(name=user.name, icon_url=user.avatar_url)
+        embed2.set_footer(text=ctx.guild.name, icon_url=ctx.guild.icon_url)
+        embed2.add_field(name="Staffer", value=f"{ctx.author.mention} | ID: {ctx.author.id}", inline=False)
+        embed2.add_field(name="Utente", value=f"{user.mention} | ID: {user.id}", inline=False)
         # Vars
         userchannel = None
         mod = get(ctx.guild.roles, id=454262524955852800)
         rvindertech = get(ctx.guild.roles, id=720221658501087312)
         vindertech = get(ctx.guild.roles, id=659513332218331155)
         category = get(ctx.guild.channels, id=683363228931194899)
+        channel_log = get(ctx.guild.channels, id=721809334178414614)
         # Channel Check
         for channel in ctx.guild.text_channels:
                 if channel.topic == f"Ticket User ID: {str(user.id)}":
@@ -48,6 +54,7 @@ class TicketManagement(commands.Cog):
                 await channel.set_permissions(user, read_messages=True, send_messages=True, embed_links=True, attach_files=True, read_message_history=True)
                 await channel.send(embed=embed)
                 await ctx.send(f"**Ticket aperto per {user.mention} (`{str(user.id)}`)**")
+                await channel_log.send(embed=embed2)
         else:
                 await ctx.send(f"L'utente {user.mention} (`{str(user.id)}`) ha già un ticket aperto.")
                 print(f"Ticket Channel detected for {user.name}")
@@ -62,9 +69,16 @@ class TicketManagement(commands.Cog):
         embed2.set_footer(text=ctx.guild.name, icon_url=ctx.guild.icon_url)
         embed2.add_field(name="Staffer", value=f"{ctx.author.mention} | ID: {ctx.author.id}", inline=False)
         embed2.add_field(name="Motivazione", value=reason, inline=False)
+        embed3 = discord.Embed(title="**Richiesta Supporto Chiusa**", color=discord.Color.red(), timestamp=datetime.datetime.utcnow())
+        embed3.set_author(name=user.name, icon_url=user.avatar_url)
+        embed3.set_footer(text=ctx.guild.name, icon_url=ctx.guild.icon_url)
+        embed3.add_field(name="Staffer", value=f"{ctx.author.mention} | ID: {ctx.author.id}", inline=False)
+        embed3.add_field(name="Utente", value=f"{user.mention} | ID: {user.id}", inline=False)
+        embed3.add_field(name="Motivazione", value=reason, inline=False)
         # Vars
         guild = ctx.guild
         userchannel = None
+        channel_log = get(ctx.guild.channels, id=721809334178414614)
         # Channel Check
         for channel in ctx.guild.text_channels:
                 if channel.topic == f"Ticket User ID: {str(user.id)}":
@@ -79,26 +93,31 @@ class TicketManagement(commands.Cog):
                 await userchannel.delete()
                 await ctx.send(f"**Ticket chiuso per {user.mention} (`{str(user.id)}`) con motivazione: `{reason}`**")
                 await ctx.author.send(embed=embed2)
+                await channel_log.send(embed=embed3)
                 
     @ticket.command(name="dm")
     @commands.has_any_role(659513332218331155, 676408167063879715, 720221658501087312)
     async def dm(self, ctx: Context, user: discord.Member, *, content: str):
         """Inviare un DM all'utente specificato"""
+        #Vars
+        channel_log = get(ctx.guild.channels, id=721809334178414614)
         # Embed
         embed3 = discord.Embed(title="**Notifica Richiesta Supporto**", color=discord.Color.blue(), timestamp=datetime.datetime.utcnow())
         embed3.set_author(name=ctx.author.name, icon_url=ctx.author.avatar_url)
         embed3.set_footer(text=ctx.guild.name, icon_url=ctx.guild.icon_url)
         embed3.add_field(name="Staffer", value=f"{ctx.author.mention} | ID: {ctx.author.id}", inline=False)
         embed3.add_field(name="Messaggio", value=content, inline=False)
-        embed4 = discord.Embed(title="**DM Inviato Correttamente**", color=discord.Color.blue(), timestamp=datetime.datetime.utcnow())
+        embed4 = discord.Embed(title="**Invio Messaggio DM**", color=discord.Color.blue(), timestamp=datetime.datetime.utcnow())
         embed4.set_author(name=user.name, icon_url=user.avatar_url)
         embed4.set_footer(text=ctx.guild.name, icon_url=ctx.guild.icon_url)
+        embed4.add_field(name="Staffer", value=f"{ctx.author.mention} | ID: {ctx.author.id}", inline=False)
         embed4.add_field(name="Utente", value=f"{user.mention} | ID: {user.id}", inline=False)
         embed4.add_field(name="Messaggio", value=content, inline=False)
         # DM
         try:
                 await user.send(embed=embed3)
                 await ctx.send(embed=embed4)
+                await channel_log.send(embed=embed4)
         except:
                 await ctx.send(f"L'utente {user.mention} (`{str(user.id)}`) non accetta messaggi privati (DM).")
         
