@@ -35,7 +35,7 @@ class TicketManagement(commands.Cog):
         category = get(ctx.guild.channels, id=683363228931194899)
         # Channel Check
         for channel in ctx.guild.channels:
-                if channel.topic == f"Ticket User ID: {str(user.id)}":
+                if channel.type == "text" and channel.topic == f"Ticket User ID: {str(user.id)}":
                         userchannel = channel
 	# Ticket Open
         if userchannel == None:
@@ -65,7 +65,7 @@ class TicketManagement(commands.Cog):
         userchannel = None
         # Channel Check
         for channel in ctx.guild.channels:
-                if channel.topic == f"Ticket User ID: {str(user.id)}":
+                if channel.type == "text" and channel.topic == f"Ticket User ID: {str(user.id)}":
                         userchannel = channel
         # Ticket Close
         if userchannel == None:
