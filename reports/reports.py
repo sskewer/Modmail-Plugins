@@ -58,7 +58,8 @@ class Report(commands.Cog):
         list = None
         if ctx.message.attachments != None:
             for attachment in ctx.message.attachments:
-                list = list + await attachment.to_file
+                list = list + f"[{attachment.filename}]({attachment.url})\n"
+                embed.add_field(name="Allegati", value=list, inline=False)
             await setchannel.send(report_mention, embed=embed, files=list)
         else:
             await setchannel.send(report_mention, embed=embed)
