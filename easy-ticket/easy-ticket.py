@@ -35,12 +35,11 @@ class TicketManagement(commands.Cog):
         category = get(ctx.guild.channels, id=683363228931194899)
         # Channel Check
         for channel in ctx.guild.channels:
-                if channel.name == f"ticket-{user.name}" and channel.topic == f"User ID: {str(user.id)}":
-                        userchannel = channel
+                if channel.name == f"ticket-{user.name}":
+                        if channel.topic == f"User ID: {str(user.id)}":
+                                userchannel = channel
 	# Ticket Open
-        if userchannel != None:
-                await ctx.send(f"L'utente {user.mention} (`{str(user.id)}`) ha già un ticket aperto.")
-        else:
+        if userchannel == None:
                 channel = await ctx.guild.create_text_channel(f"ticket-{user.name}", category=category, topic=f"User ID: {str(user.id)}")
                 await channel.set_permissions(ctx.guild.default_role, read_messages=False, send_messages=False)
                 await channel.set_permissions(mod, read_messages=True, send_messages=True, manage_messages=True, embed_links=True, attach_files=True)
@@ -49,6 +48,8 @@ class TicketManagement(commands.Cog):
                 await channel.set_permissions(user, read_messages=True, send_messages=True, embed_links=True, attach_files=True)
                 await channel.send(embed=embed)
                 await ctx.send(f"**Ticket aperto per {user.mention} (`{str(user.id)}`)**")
+        else:
+                await ctx.send(f"L'utente {user.mention} (`{str(user.id)}`) ha già un ticket aperto.")
         
     @ticket.command(name="close")
     @commands.has_any_role(659513332218331155, 676408167063879715, 720221658501087312)
@@ -64,9 +65,10 @@ class TicketManagement(commands.Cog):
         guild = ctx.guild
         userchannel = None
         # Channel Check
-        for channel in guild.channels:
-                if channel.name == f"ticket-{user.name}" and channel.topic == f"User ID: {str(user.id)}":
-                        userchannel = channel
+        for channel in ctx.guild.channels:
+                if channel.name == f"ticket-{user.name}":
+                        if channel.topic == f"User ID: {str(user.id)}":
+                                userchannel = channel
         # Ticket Close
         if userchannel == None:
                 await ctx.send(f"L'utente {user.mention} (`{str(user.id)}`) non possiede nessun ticket aperto.")
