@@ -1,4 +1,5 @@
 import discord
+from discord import Member, Role, TextChannel, DMChannel
 from discord.ext import commands
 
 from core import checks
