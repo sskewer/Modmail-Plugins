@@ -37,9 +37,9 @@ class TicketManagement(commands.Cog):
         for channel in ctx.guild.channels:
                 if channel.type == "text" and channel.topic == f"Ticket User ID: {str(user.id)}":
                         userchannel = channel
-                        print(f"Ticket Channel detected for {user.name}")
 	# Ticket Open
         if userchannel == None:
+                print(f"No Ticket Channel detected for {user.name}")
                 channel = await ctx.guild.create_text_channel(f"ticket-{user.name}", category=category, topic=f"Ticket User ID: {str(user.id)}")
                 await channel.set_permissions(ctx.guild.default_role, read_messages=False, send_messages=False)
                 await channel.set_permissions(mod, read_messages=True, send_messages=True, manage_messages=True, embed_links=True, attach_files=True)
@@ -50,6 +50,7 @@ class TicketManagement(commands.Cog):
                 await ctx.send(f"**Ticket aperto per {user.mention} (`{str(user.id)}`)**")
         else:
                 await ctx.send(f"L'utente {user.mention} (`{str(user.id)}`) ha già un ticket aperto.")
+                print(f"Ticket Channel detected for {user.name}")
         
     @ticket.command(name="close")
     @commands.has_any_role(659513332218331155, 676408167063879715, 720221658501087312)
@@ -72,7 +73,9 @@ class TicketManagement(commands.Cog):
         # Ticket Close
         if userchannel == None:
                 await ctx.send(f"L'utente {user.mention} (`{str(user.id)}`) non possiede nessun ticket aperto.")
+		print(f"No Ticket Channel detected for {user.name}")
         else:
+                print(f"Ticket Channel detected for {user.name}")
                 await userchannel.delete()
                 await ctx.send(f"**Ticket chiuso per {user.mention} (`{str(user.id)}`) con motivazione: `{reason}`**")
                 await ctx.author.send(embed=embed2)
