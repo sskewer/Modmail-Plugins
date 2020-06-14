@@ -57,7 +57,7 @@ class Report(commands.Cog):
         embed.add_field(name="Motivazione", value=reason, inline=False)
         
         if ctx.message.attachments != None:
-            file = File(ctx.message.attachments[0], 'attachment.png')
+            file = await ctx.message.attachments[0].to_file()
             await setchannel.send(report_mention, embed=embed, file=file)
         
         embed2 = discord.Embed(title="**Riepilogo Segnalazione**", color=discord.Color.red(), timestamp=datetime.datetime.utcnow())
