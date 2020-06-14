@@ -35,11 +35,11 @@ class TicketManagement(commands.Cog):
         category = get(ctx.guild.channels, id=683363228931194899)
         # Channel Check
         for channel in ctx.guild.channels:
-                if channel.topic == f"User ID: {str(user.id)}":
+                if channel.topic == f"Ticket User ID: {str(user.id)}":
                         userchannel = channel
 	# Ticket Open
         if userchannel == None:
-                channel = await ctx.guild.create_text_channel(f"ticket-{user.name}", category=category, topic=f"User ID: {str(user.id)}")
+                channel = await ctx.guild.create_text_channel(f"ticket-{user.name}", category=category, topic=f"Ticket User ID: {str(user.id)}")
                 await channel.set_permissions(ctx.guild.default_role, read_messages=False, send_messages=False)
                 await channel.set_permissions(mod, read_messages=True, send_messages=True, manage_messages=True, embed_links=True, attach_files=True)
                 await channel.set_permissions(rvindertech, read_messages=True, send_messages=True, manage_messages=True, embed_links=True, attach_files=True)
@@ -65,7 +65,7 @@ class TicketManagement(commands.Cog):
         userchannel = None
         # Channel Check
         for channel in ctx.guild.channels:
-                if channel.topic == f"User ID: {str(user.id)}":
+                if channel.topic == f"Ticket User ID: {str(user.id)}":
                         userchannel = channel
         # Ticket Close
         if userchannel == None:
