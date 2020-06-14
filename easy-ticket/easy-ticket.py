@@ -38,7 +38,7 @@ class TicketManagement(commands.Cog):
                 if channel.name == f"ticket-{user.name}" and channel.topic == f"User ID: {str(user.id)}":
                         userchannel = channel
 	# Ticket Open
-        if userchannel == None:
+        if userchannel != None:
                 await ctx.send(f"L'utente {user.mention} (`{str(user.id)}`) ha già un ticket aperto.")
         else:
                 channel = await ctx.guild.create_text_channel(f"ticket-{user.name}", category=category, topic=f"User ID: {str(user.id)}")
