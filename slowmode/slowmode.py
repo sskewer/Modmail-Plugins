@@ -11,11 +11,14 @@ class SlowMode(commands.Cog):
         
     @group(name="slowmode", invoke_without_command=True)
     @commands.has_any_role(454262524955852800, 454268394464870401)
-    async def slowmode(self, ctx, time, *, channel: discord.TextChannel):
+    async def slowmode(self, ctx, time, *, channel: discord.TextChannel = None):
         """
         Impostare la slowmode del canale specificato
         Non è possibile impostare una slowmode superiore alle 6 ore
         """
+        if not channel:
+            channel = discord.TextChannel = None
+            
         units = {
             "d": 86400,
             "h": 3600,
@@ -49,9 +52,11 @@ class SlowMode(commands.Cog):
 
     @slowmode.command(name="off")
     @commands.has_any_role(454262524955852800, 454268394464870401)
-    async def off(self, ctx, *, channel: discord.TextChannel):
+    async def off(self, ctx, *, channel: discord.TextChannel = None):
         """Disattivare la slowmode in un canale"""
-        
+        if not channel:
+            channel = discord.TextChannel = None
+            
         seconds_off = 0
         await channel.edit(slowmode_delay=seconds_off)
         embed=discord.Embed(description=f"✅ {ctx.author.mention} ha disattivato la slowmode in {channel.mention}", color=discord.Color.green())
