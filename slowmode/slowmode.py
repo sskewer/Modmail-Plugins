@@ -10,7 +10,7 @@ class SlowMode(commands.Cog):
         self.bot = bot
         
     @group(name="slowmode", invoke_without_command=True)
-    async def slowmode(self, ctx, time, *, channel: discord.TextChannel):
+    async def slowmode(self, ctx):
         """Impostare o disattivare la slowmode del canale specificato"""
         
     @slowmode.command(name="set")
