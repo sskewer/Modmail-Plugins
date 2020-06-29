@@ -9,7 +9,7 @@ class SlowMode(commands.Cog):
         self.bot = bot
 
     @commands.command()
-    @checks.has_permissions(PermissionLevel.MODERATOR)
+    @commands.has_any_role(454262524955852800, 454268394464870401)
     async def slowmode(self, ctx, time, channel: discord.TextChannel = None):
         """Imposta la slowmode del canale specificato
         Non è possibile impostare una slowmode superiore alle 6 ore
@@ -46,7 +46,7 @@ class SlowMode(commands.Cog):
         await channel.send(embed=embed2)
 
     @commands.command()
-    @checks.has_permissions(PermissionLevel.MODERATOR)
+    @commands.has_any_role(454262524955852800, 454268394464870401)
     async def slowmode_off(self, ctx, channel: discord.TextChannel = None):
         """Disattivare la slowmode in un canale"""
         if not channel:
