@@ -11,8 +11,8 @@ class SlowMode(commands.Cog):
     @commands.command()
     @checks.has_permissions(PermissionLevel.MODERATOR)
     async def slowmode(self, ctx, time, channel: discord.TextChannel = None):
-        """Set a slowmode to a channel
-        It is not possible to set a slowmode longer than 6 hours
+        """Imposta la slowmode del canale specificato
+        Non è possibile impostare una slowmode superiore alle 6 ore
         """
         if not channel:
             channel = discord.TextChannel = None
@@ -26,33 +26,39 @@ class SlowMode(commands.Cog):
         seconds = 0
         match = re.findall("([0-9]+[smhd])", time)
         if not match:
-            embed = discord.Embed(description="⚠ I dont understand your time format!",color = 0xff0000)
+            embed = discord.Embed(description="⚠ Il formato tempo utilizzato non è corretto!",color = discord.Color.orange())
             return await ctx.send(embed=embed)
         for item in match:
             seconds += int(item[:-1]) * units[item[-1]]
         if seconds > 21600:
-            embed = discord.Embed(description="⚠ You can't slowmode a channel for longer than 6 hours!", color=0xff0000)
+            embed = discord.Embed(description="⚠ Non puoi impostare una slowmode superiore alle 6 ore!", color=discord.Color.orange())
             return await ctx.send(embed=embed)
         try:
             await channel.edit(slowmode_delay=seconds)
         except discord.errors.Forbidden:
-            embed = discord.Embed(description="⚠ I don't have permission to do this!", color=0xff0000)
+            embed = discord.Embed(description="⚠ Non ho i permessi necessari per fare questo!", color=discord.Color.orange())
             return await ctx.send(embed=embed)
-        embed=discord.Embed(description=f"{ctx.author.mention} set a slowmode delay of `{time}` in {channel.mention}", color=0x06c9ff)
-        embed.set_author(name="Slow Mode")
+        embed=discord.Embed(description=f"✅ {ctx.author.mention} ha impostato la slowmode `{time}` in {channel.mention}", color=discord.Color.green())
+        embed.set_author(name="Modifica Slowmode")
+        embed2=discord.Embed(description=f"La slowmode per questo canale è ora **`{time}`**", color=discord.Color.red())
+        embed2.set_author(name="Modifica Slowmode")
         await ctx.send(embed=embed)
+        await channel.send(embed=embed2)
 
     @commands.command()
     @checks.has_permissions(PermissionLevel.MODERATOR)
     async def slowmode_off(self, ctx, channel: discord.TextChannel = None):
-        """Turn off the slowmode in a channel"""
+        """Disattivare la slowmode in un canale"""
         if not channel:
             channel = ctx.channel
         seconds_off = 0
         await channel.edit(slowmode_delay=seconds_off)
-        embed=discord.Embed(description=f"{ctx.author.mention} turned off the slowmode in {channel.mention}", color=0x06c9ff)
+        embed=discord.Embed(description=f"✅ {ctx.author.mention} ha disattivato la slowmode in {channel.mention}", color=discord.Color.green())
         embed.set_author(name="Slow Mode")
+        embed2=discord.Embed(description=f"La slowmode per questo canale è ora disattivata", color=discord.Color.red())
+        embed2.set_author(name="Modifica Slowmode")
         await ctx.send(embed=embed)
+        await channel.send(embed=embed2)
 
 def setup(bot):
     bot.add_cog(SlowMode(bot))
