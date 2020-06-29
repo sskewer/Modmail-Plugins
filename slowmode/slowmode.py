@@ -17,7 +17,7 @@ class SlowMode(commands.Cog):
         Non è possibile impostare una slowmode superiore alle 6 ore
         """
         if not channel:
-            channel = discord.TextChannel = None
+            channel = ctx.channel
             
         units = {
             "d": 86400,
@@ -55,7 +55,7 @@ class SlowMode(commands.Cog):
     async def off(self, ctx, channel: discord.TextChannel = None):
         """Disattivare la slowmode in un canale"""
         if not channel:
-            channel = discord.TextChannel = None
+            channel = ctx.channel
             
         seconds_off = 0
         await channel.edit(slowmode_delay=seconds_off)
