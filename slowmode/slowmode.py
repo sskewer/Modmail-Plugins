@@ -39,21 +39,22 @@ class SlowMode(commands.Cog):
             return await ctx.send(embed=embed)
         embed=discord.Embed(description=f"La slowmode per questo canale è ora **{time}**", color=discord.Color.red())
         embed.set_author(name="Modifica Slowmode")
+        embed.set_footer(text=f"Richiesta da {ctx.member.display_name}", icon_url=ctx.member.avatar_url)
         await ctx.send(embed=embed)
+        await ctx.message.delete()
 
 
     @slowmode.command(name="off")
     @commands.has_any_role(454262524955852800, 454268394464870401)
     async def off(self, ctx):
-        """Disattivare la slowmode in un canale"""
-        if not channel:
-            channel = ctx.channel
-            
+        """Disattivare la slowmode in un canale"""         
         seconds_off = 0
         await ctx.channel.edit(slowmode_delay=seconds_off)
         embed=discord.Embed(description=f"La slowmode per questo canale è ora disattivata", color=discord.Color.red())
         embed.set_author(name="Modifica Slowmode")
+        embed.set_footer(text=f"Richiesta da {ctx.member.display_name}", icon_url=ctx.member.avatar_url)
         await ctx.send(embed=embed)
+        await ctx.message.delete()
 
 def setup(bot):
     bot.add_cog(SlowMode(bot))
