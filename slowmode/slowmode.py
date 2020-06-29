@@ -41,8 +41,11 @@ class SlowMode(commands.Cog):
         embed.set_author(name="Modifica Slowmode")
         embed2=discord.Embed(description=f"La slowmode per questo canale è ora **`{time}`**", color=discord.Color.red())
         embed2.set_author(name="Modifica Slowmode")
-        await ctx.send(embed=embed)
-        await channel.send(embed=embed2)
+        if ctx.channel == channel:
+            await channel.send(embed=embed2)
+        else:
+            await ctx.send(embed=embed)
+            await channel.send(embed=embed2)
 
     @slowmode.command(name="off")
     @commands.has_any_role(454262524955852800, 454268394464870401)
@@ -56,8 +59,11 @@ class SlowMode(commands.Cog):
         embed.set_author(name="Slow Mode")
         embed2=discord.Embed(description=f"La slowmode per questo canale è ora disattivata", color=discord.Color.red())
         embed2.set_author(name="Modifica Slowmode")
-        await ctx.send(embed=embed)
-        await channel.send(embed=embed2)
+        if ctx.channel == channel:
+            await channel.send(embed=embed2)
+        else:
+            await ctx.send(embed=embed)
+            await channel.send(embed=embed2)
 
 def setup(bot):
     bot.add_cog(SlowMode(bot))
