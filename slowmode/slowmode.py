@@ -11,10 +11,15 @@ class SlowMode(commands.Cog):
         
     @group(name="slowmode", invoke_without_command=True)
     async def slowmode(self, ctx, time, *, channel: discord.TextChannel):
-        """Impostare la slowmode del canale specificato
+        """Impostare o disattivare la slowmode del canale specificato"""
+        
+    @slowmode.command(name="set")
+    @commands.has_any_role(454262524955852800, 454268394464870401)
+    async def set(self, ctx, *, channel: discord.TextChannel):
+        """
+        Impostare la slowmode del canale specificato
         Non è possibile impostare una slowmode superiore alle 6 ore
         """
-        
         units = {
             "d": 86400,
             "h": 3600,
