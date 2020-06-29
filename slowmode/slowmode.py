@@ -15,7 +15,8 @@ class SlowMode(commands.Cog):
         """
         Impostare la slowmode del canale specificato
         Non è possibile impostare una slowmode superiore alle 6 ore
-        """     
+        """
+        member = ctx.guild.get_member(ctx.message.author.id)
         units = {
             "d": 86400,
             "h": 3600,
@@ -39,7 +40,7 @@ class SlowMode(commands.Cog):
             return await ctx.send(embed=embed)
         embed=discord.Embed(description=f"La slowmode per questo canale è ora **{time}**", color=discord.Color.red())
         embed.set_author(name="Modifica Slowmode")
-        embed.set_footer(text=f"Richiesta da {ctx.member.display_name}", icon_url=ctx.member.avatar_url)
+        embed.set_footer(text=f"Richiesta da {member.display_name}", icon_url=member.avatar_url)
         await ctx.send(embed=embed)
         await ctx.message.delete()
 
@@ -47,12 +48,13 @@ class SlowMode(commands.Cog):
     @slowmode.command(name="off")
     @commands.has_any_role(454262524955852800, 454268394464870401)
     async def off(self, ctx):
-        """Disattivare la slowmode in un canale"""         
+        """Disattivare la slowmode in un canale"""
+        member = ctx.guild.get_member(ctx.message.author.id)
         seconds_off = 0
         await ctx.channel.edit(slowmode_delay=seconds_off)
         embed=discord.Embed(description=f"La slowmode per questo canale è ora disattivata", color=discord.Color.red())
         embed.set_author(name="Modifica Slowmode")
-        embed.set_footer(text=f"Richiesta da {ctx.member.display_name}", icon_url=ctx.member.avatar_url)
+        embed.set_footer(text=f"Richiesta da {member.display_name}", icon_url=member.avatar_url)
         await ctx.send(embed=embed)
         await ctx.message.delete()
 
