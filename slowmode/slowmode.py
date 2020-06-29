@@ -16,6 +16,7 @@ class SlowMode(commands.Cog):
         Impostare la slowmode del canale specificato
         Non è possibile impostare una slowmode superiore alle 6 ore
         """
+        print(channel)
         if not channel:
             channel = ctx.channel
             
