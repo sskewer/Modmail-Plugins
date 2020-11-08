@@ -5,14 +5,14 @@ from discord.ext import commands
 from core import checks
 from core.models import PermissionLevel
 
-class FAQ(commands.Cog):
+class Faq(commands.Cog):
   """Ottenere un collegamento diretto alla FAQ indicata"""
+  
   def __init__(self, bot):
     self.bot = bot
     self.db = bot.plugin_db.get_partition(self)
         
-    @commands.guild_only()
-    @commands.command(aliases=["domande"])
+    @commands.command()
     async def faq(self, ctx, *, args: str = None):
       if ctx.message.mentions == []:
         member = None
@@ -55,5 +55,6 @@ class FAQ(commands.Cog):
       # Remove Author Message
       await ctx.message.delete()
 
+
 def setup(bot):
-  bot.add_cog(FAQ(bot))
+  bot.add_cog(Faq(bot))
