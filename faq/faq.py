@@ -15,10 +15,10 @@ class faqCommand(commands.Cog):
     @commands.command(aliases=["domande"])
     async def faq(self, ctx, *, args: str = None):
     	if ctx.message.mentions == []:
-        	member = None
+                member = None
         else:
-        	for mention in ctx.message.mentions:
-        	        args = args.replace(f"<@!{mention.id}>", "")
+                for mention in ctx.message.mentions:
+                        args = args.replace(f"<@!{mention.id}>", "")
         channel = ctx.guild.get_channel(774706975400919090)
         messages = await channel.history(limit=50).flatten()
         titles = []
