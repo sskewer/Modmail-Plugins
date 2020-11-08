@@ -22,7 +22,7 @@ class TicketManagement(commands.Cog):
     async def open(self, ctx: Context, user: discord.Member):
         """Aprire un ticket per l'utente specificato"""
         # Embed
-        embed = discord.Embed(title="**Richiesta Supporto Accettata**", description=f"Hey <@{user.id}>, la tua richiesta è stata accettata e per questo abbiamo aperto un ticket. Un membero del team Vindertech ti risponderà il prima possibile.", color=discord.Color.green(), timestamp=datetime.datetime.utcnow())
+        embed = discord.Embed(title="**Richiesta Supporto Accettata**", description=f"Hey <@{user.id}>, la tua richiesta è stata accettata e per questo abbiamo aperto un ticket. Un membro del team Vindertech ti risponderà il prima possibile.", color=discord.Color.green(), timestamp=datetime.datetime.utcnow())
         embed.set_author(name=user.name, icon_url=user.avatar_url)
         embed.set_footer(text=ctx.guild.name, icon_url=ctx.guild.icon_url)
         embed.add_field(name="**F.A.Q.**", value=f"Se hai bisogno delle domande e risposte frequenti, [clicca qui](https://www.epicgames.com/help/it/fortnite-c75).", inline=False)
