@@ -12,7 +12,7 @@ class TicketManagement(commands.Cog):
         self.db = bot.plugin_db.get_partition(self)
 
     @group(name="ticket", invoke_without_command=True)
-    @commands.has_any_role(659513332218331155, 676408167063879715, 720221658501087312)
+    @commands.has_any_role(454262524955852800, 659513332218331155, 676408167063879715, 720221658501087312)
     async def ticket(self, ctx: Context) -> None:
         """Aprire e chiudere un ticket o inviare un DM per il Supporto Vindertech."""
         await ctx.send_help(ctx.command)
@@ -60,7 +60,7 @@ class TicketManagement(commands.Cog):
                 print(f"Ticket Channel detected for {user.name}")
         
     @ticket.command(name="close")
-    @commands.has_any_role(659513332218331155, 676408167063879715, 720221658501087312)
+    @commands.has_any_role(454262524955852800, 659513332218331155, 676408167063879715, 720221658501087312)
     async def close(self, ctx: Context, user: discord.Member, *, reason: str):
         """Chiudere un ticket per l'utente specificato"""
         # Embed
@@ -96,7 +96,7 @@ class TicketManagement(commands.Cog):
                 await user.send(embed=embed2)
                 
     @ticket.command(name="dm")
-    @commands.has_any_role(659513332218331155, 676408167063879715, 720221658501087312)
+    @commands.has_any_role(454262524955852800, 659513332218331155, 676408167063879715, 720221658501087312)
     async def dm(self, ctx: Context, user: discord.Member, *, content: str):
         """Inviare un DM all'utente specificato"""
         #Vars
