@@ -18,7 +18,7 @@ class TicketManagement(commands.Cog):
         await ctx.send_help(ctx.command)
 
     @ticket.command(name="open")
-    @commands.has_any_role(659513332218331155, 676408167063879715, 720221658501087312)
+    @commands.has_any_role(454262524955852800, 659513332218331155, 676408167063879715, 720221658501087312)
     async def open(self, ctx: Context, user: discord.Member):
         """Aprire un ticket per l'utente specificato"""
         # Embed
