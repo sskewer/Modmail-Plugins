@@ -5,7 +5,7 @@ from discord.ext import commands
 from core import checks
 from core.models import PermissionLevel
 
-class faqCommand(commands.Cog):
+class faq(commands.Cog):
   """Ottenere un collegamento diretto alla FAQ indicata"""
   def __init__(self, bot):
     self.bot = bot
@@ -56,4 +56,4 @@ class faqCommand(commands.Cog):
       await ctx.message.delete()
 
 def setup(bot):
-  bot.add_cog(faqCommand(bot))
+  bot.add_cog(faq(bot))
