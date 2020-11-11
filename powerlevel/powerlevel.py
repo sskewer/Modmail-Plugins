@@ -18,7 +18,7 @@ def getNick(nick:str):
     return None;
  
 # Setup
-setup(131)
+setup(133)
  
 class PowerLevel(commands.Cog):
     def __init__(self, bot):
@@ -41,7 +41,7 @@ class PowerLevel(commands.Cog):
               index  = int(content);
               member  = guild.get_member(user_id)
               # New Nickname
-              if index > 0 and index <= 131:
+              if index > 0 and index <= 133:
                   tag = levels[index];
                   # New Nickname
                   original_nick = getNick(author.display_name)
