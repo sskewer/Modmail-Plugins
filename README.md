@@ -8,14 +8,5 @@
   <img src="https://img.shields.io/badge/GitHub-@sskewer-181717?style=plastic&logo=github">
   <a href="https://streamlabs.com/mrskewer/tip"><img src="https://img.shields.io/badge/Paypal-Donate-00457C?style=plastic&logo=paypal"></a>
   <br><br><img src="https://github.com/sskewer/modmail/blob/master/Plugins_List_Image.png?raw=true" align="center">
+  <br><br><strong><i>[Click here for a list of all available plugins](PLUGINS.md)<strong><i>
 </p>
-
-|     Name     	|                            Description                            	| Status 	|
-|:------------:	|:-----------------------------------------------------------------:	|:------:	|
-| auto-publish 	| Automatically publish a message posted in an announcement channel 	|  ![](https://img.shields.io/badge/-OK-brightgreen) 	|
-|  easy-ticket 	|             Manage user tickets as easily as possible             	|  ![](https://img.shields.io/badge/-OK-brightgreen)
-|  lockserver  	|          Blocking the entire server from sending messages         	|  ![](https://img.shields.io/badge/-OK-brightgreen)
-|  powerlevel  	|    Adding or removing the STW (Fortnite) level to your nickname   	|  ![](https://img.shields.io/badge/-OK-brightgreen)
-|    reports   	|         Reporting users by command, alerting server staff         	|  ![](https://img.shields.io/badge/-OK-brightgreen)
-|   slowmode   	|       Manage the slowmode of a channel directly via commands      	|  ![](https://img.shields.io/badge/-OK-brightgreen)
-|  supportrole 	|        Give or remove a specific role directly via command        	|  ![](https://img.shields.io/badge/-OK-brightgreen)
