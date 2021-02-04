@@ -18,7 +18,7 @@ def getNick(nick:str):
     return None;
  
 # Setup
-setup(133)
+setup(135)
  
 class PowerLevel(commands.Cog):
     def __init__(self, bot):
@@ -26,7 +26,7 @@ class PowerLevel(commands.Cog):
      
     @commands.command()
     async def powerlevel(self, ctx, *, content:str):
-        """Assegnare il livello di Potenza STW al proprio nickname.\n\n**Utilizzo**\n**`/powerlevel <livello>`** - Aggiungere il livello al proprio nickname\n**`/powerlevel reset`** - Rimuovere il livello dal proprio nickname\n\n**Esempi**\n**`/powerlevel 131`** - Nickname [\\⚡131]\n**`/powerlevel reset`** - Nickname\n\n**Accorgimenti**\n- I nickname non possono superare i 32 caratteri.\n- Utilizzare  in <#454261608324268063> o <#454274882688122880>."""
+        """Assegnare il livello di Potenza STW al proprio nickname.\n\n**Utilizzo**\n**`/powerlevel <livello>`** - Aggiungere il livello al proprio nickname\n**`/powerlevel reset`** - Rimuovere il livello dal proprio nickname\n\n**Esempi**\n**`/powerlevel 131`** - Nickname [\\⚡131]\n**`/powerlevel reset`** - Nickname\n\n**Accorgimenti**\n- I nickname non possono superare i 32 caratteri.\n- Utilizzare esclusivamente in <#454274882688122880>."""
         # Vars
         message = ctx.message;
         guild   = message.guild;
@@ -35,13 +35,13 @@ class PowerLevel(commands.Cog):
         channel = ctx.channel;
         error   = '**<@' + str(user_id) + '>, per favore inserisci un power level valido.**';
         # Check
-        if channel.id == 454261608324268063 or channel.id == 454274882688122880 or channel.id == 454274841047072768 or channel.id == 454268474534133762:
+        if channel.id == 454274882688122880:
           if content.isdigit():
               # Vars
               index  = int(content);
               member  = guild.get_member(user_id)
               # New Nickname
-              if index > 0 and index <= 133:
+              if index > 0 and index <= 135:
                   tag = levels[index];
                   # New Nickname
                   original_nick = getNick(author.display_name)
