@@ -8,5 +8,5 @@
   <img src="https://img.shields.io/badge/GitHub-@sskewer-181717?style=plastic&logo=github">
   <a href="https://streamlabs.com/mrskewer/tip"><img src="https://img.shields.io/badge/Paypal-Donate-00457C?style=plastic&logo=paypal"></a>
   <br><br><img src="https://github.com/sskewer/modmail/blob/master/Plugins_List_Image.png?raw=true" align="center">
-  <br><br><strong><i><a href="modmail/PLUGINS.md">Click here for a list of all available plugins</a><strong><i>
+  <br><strong><i><a href="PLUGINS.md">Click here for a list of all available plugins</a><strong><i>
 </p>
