@@ -84,7 +84,7 @@ class TicketManagement(commands.Cog):
         	# Embed
         	embed2 = discord.Embed(title="**Richiesta Supporto Chiusa**", color=discord.Color.red(), timestamp=datetime.datetime.utcnow())
         	embed2.set_author(name=user.name, icon_url=user.avatar_url)
-		embed2.set_footer(text=ctx.guild.name, icon_url=ctx.guild.icon_url)
+        	embed2.set_footer(text=ctx.guild.name, icon_url=ctx.guild.icon_url)
         	embed2.add_field(name="Staffer", value=f"{ctx.author.mention} | ID: {ctx.author.id}", inline=False)
         	embed2.add_field(name="Motivazione", value=reason, inline=False)
         	embed3 = discord.Embed(title="**Richiesta Supporto Chiusa**", color=discord.Color.red(), timestamp=datetime.datetime.utcnow())
