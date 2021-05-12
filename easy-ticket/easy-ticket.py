@@ -62,39 +62,56 @@ class TicketManagement(commands.Cog):
         
     @ticket.command(name="close")
     @commands.has_any_role(454262524955852800, 659513332218331155, 676408167063879715, 720221658501087312)
-    async def close(self, ctx: Context, user: discord.Member, *, reason: str):
+    async def close(self, ctx: Context, check: discord.User, *, reason: str):
         """Chiudere un ticket per l'utente specificato"""
-        # Embed
-        embed2 = discord.Embed(title="**Richiesta Supporto Chiusa**", color=discord.Color.red(), timestamp=datetime.datetime.utcnow())
-        embed2.set_author(name=user.name, icon_url=user.avatar_url)
-        embed2.set_footer(text=ctx.guild.name, icon_url=ctx.guild.icon_url)
-        embed2.add_field(name="Staffer", value=f"{ctx.author.mention} | ID: {ctx.author.id}", inline=False)
-        embed2.add_field(name="Motivazione", value=reason, inline=False)
-        embed3 = discord.Embed(title="**Richiesta Supporto Chiusa**", color=discord.Color.red(), timestamp=datetime.datetime.utcnow())
-        embed3.set_author(name=user.name, icon_url=user.avatar_url)
-        embed3.set_footer(text=ctx.guild.name, icon_url=ctx.guild.icon_url)
-        embed3.add_field(name="Staffer", value=f"{ctx.author.mention} | ID: {ctx.author.id}", inline=False)
-        embed3.add_field(name="Utente", value=f"{user.mention} | ID: {user.id}", inline=False)
-        embed3.add_field(name="Motivazione", value=reason, inline=False)
-        # Vars
-        guild = ctx.guild
-        userchannel = None
-        channel_log = get(ctx.guild.channels, id=721809334178414614)
-        # Channel Check
-        for channel in ctx.guild.text_channels:
-                if channel.topic == f"Ticket User ID: {str(user.id)}":
-                        userchannel = channel
-                        print(f"Ticket Channel detected for {user.name}")
-        # Ticket Close
-        if userchannel == None:
-                await ctx.send(f"L'utente {user.mention} (`{str(user.id)}`) non possiede nessun ticket aperto.")
-                print(f"No Ticket Channel detected for {user.name}")
+	user = ctx.guild.get_member(check.id)
+	if user == None:
+		if lower(reason) == "force":
+			forcechannel = None
+			forceembed = discord.Embed(description=f"Chiusura **forzata** del canale effettuata!", color=discord.Color.red())
+			for channel in ctx.guild.text_channels:
+				if channel.topic == f"Ticket User ID: {str(check.id)}":
+					forcechannel = channel
+			# Force Close
+       			if forcechannel == None:
+				await ctx.send(f"L'utente non possiede nessun ticket aperto da poter forzare.")
+			else:
+				await forcechannel.delete()
+				await ctx.send(embed=discord.Embed(description=f"Chiusura **forzata** del canale effettuata!", color=discord.Color.red()))
+		else:
+			await ctx.send(embed=discord.Embed(description=f"L'utente non è **membro** del server!", color=discord.Color.red())
         else:
-                print(f"Ticket Channel detected for {user.name}")
-                await userchannel.delete()
-                await ctx.send(f"**Ticket chiuso per {user.mention} (`{str(user.id)}`) con motivazione: `{reason}`**")
-                await channel_log.send(embed=embed3)
-                await user.send(embed=embed2)
+		# Embed
+		embed2 = discord.Embed(title="**Richiesta Supporto Chiusa**", color=discord.Color.red(), timestamp=datetime.datetime.utcnow())
+		embed2.set_author(name=user.name, icon_url=user.avatar_url)
+		embed2.set_footer(text=ctx.guild.name, icon_url=ctx.guild.icon_url)
+		embed2.add_field(name="Staffer", value=f"{ctx.author.mention} | ID: {ctx.author.id}", inline=False)
+		embed2.add_field(name="Motivazione", value=reason, inline=False)
+		embed3 = discord.Embed(title="**Richiesta Supporto Chiusa**", color=discord.Color.red(), timestamp=datetime.datetime.utcnow())
+		embed3.set_author(name=user.name, icon_url=user.avatar_url)
+		embed3.set_footer(text=ctx.guild.name, icon_url=ctx.guild.icon_url)
+		embed3.add_field(name="Staffer", value=f"{ctx.author.mention} | ID: {ctx.author.id}", inline=False)
+		embed3.add_field(name="Utente", value=f"{user.mention} | ID: {user.id}", inline=False)
+		embed3.add_field(name="Motivazione", value=reason, inline=False)
+		# Vars
+		guild = ctx.guild
+		userchannel = None
+		channel_log = get(ctx.guild.channels, id=721809334178414614)
+		# Channel Check
+		for channel in ctx.guild.text_channels:
+			if channel.topic == f"Ticket User ID: {str(user.id)}":
+				userchannel = channel
+				print(f"Ticket Channel detected for {user.name}")
+		# Ticket Close
+		if userchannel == None:
+			await ctx.send(f"L'utente {user.mention} (`{str(user.id)}`) non possiede nessun ticket aperto.")
+			print(f"No Ticket Channel detected for {user.name}")
+		else:
+			print(f"Ticket Channel detected for {user.name}")
+			await userchannel.delete()
+			await ctx.send(f"**Ticket chiuso per {user.mention} (`{str(user.id)}`) con motivazione: `{reason}`**")
+			await channel_log.send(embed=embed3)
+			await user.send(embed=embed2)
                 
     @ticket.command(name="dm")
     @commands.has_any_role(454262524955852800, 659513332218331155, 676408167063879715, 720221658501087312)
