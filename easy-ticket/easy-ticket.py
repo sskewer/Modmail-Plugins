@@ -79,7 +79,7 @@ class TicketManagement(commands.Cog):
         			await forcechannel.delete()
         			await ctx.send(embed=discord.Embed(description=f"Chiusura **forzata** del canale effettuata!", color=discord.Color.red()))
         	else:
-        		await ctx.send(embed=discord.Embed(description=f"L'utente non è **membro** del server!", color=discord.Color.red())
+        		await ctx.send(embed=discord.Embed(description=f"L'utente non è **membro** del server!", color=discord.Color.red()))
         else:
         	# Embed
         	embed2 = discord.Embed(title="**Richiesta Supporto Chiusa**", color=discord.Color.red(), timestamp=datetime.datetime.utcnow())
