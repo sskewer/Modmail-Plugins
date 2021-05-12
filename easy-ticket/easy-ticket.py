@@ -82,7 +82,7 @@ class TicketManagement(commands.Cog):
         		await ctx.send(embed=discord.Embed(description=f"L'utente non è **membro** del server!", color=discord.Color.red())
         else:
         	# Embed
-		embed2 = discord.Embed(title="**Richiesta Supporto Chiusa**", color=discord.Color.red(), timestamp=datetime.datetime.utcnow())
+        	embed2 = discord.Embed(title="**Richiesta Supporto Chiusa**", color=discord.Color.red(), timestamp=datetime.datetime.utcnow())
 		embed2.set_author(name=user.name, icon_url=user.avatar_url)
 		embed2.set_footer(text=ctx.guild.name, icon_url=ctx.guild.icon_url)
 		embed2.add_field(name="Staffer", value=f"{ctx.author.mention} | ID: {ctx.author.id}", inline=False)
