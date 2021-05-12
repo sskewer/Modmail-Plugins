@@ -67,21 +67,21 @@ class TicketManagement(commands.Cog):
         user = ctx.guild.get_member(check.id)
         if user == None:
         	if lower(reason) == "force":
-			forcechannel = None
-			forceembed = discord.Embed(description=f"Chiusura **forzata** del canale effettuata!", color=discord.Color.red())
-			for channel in ctx.guild.text_channels:
-				if channel.topic == f"Ticket User ID: {str(check.id)}":
-					forcechannel = channel
+        		forcechannel = None
+        		forceembed = discord.Embed(description=f"Chiusura **forzata** del canale effettuata!", color=discord.Color.red())
+        		for channel in ctx.guild.text_channels:
+        			if channel.topic == f"Ticket User ID: {str(check.id)}":
+        				forcechannel = channel
 			# Force Close
-       			if forcechannel == None:
-				await ctx.send(f"L'utente non possiede nessun ticket aperto da poter forzare.")
-			else:
-				await forcechannel.delete()
-				await ctx.send(embed=discord.Embed(description=f"Chiusura **forzata** del canale effettuata!", color=discord.Color.red()))
-		else:
-			await ctx.send(embed=discord.Embed(description=f"L'utente non è **membro** del server!", color=discord.Color.red())
+        		if forcechannel == None:
+        			await ctx.send(f"L'utente non possiede nessun ticket aperto da poter forzare.")
+        		else:
+        			await forcechannel.delete()
+        			await ctx.send(embed=discord.Embed(description=f"Chiusura **forzata** del canale effettuata!", color=discord.Color.red()))
+        	else:
+        		await ctx.send(embed=discord.Embed(description=f"L'utente non è **membro** del server!", color=discord.Color.red())
         else:
-		# Embed
+        	# Embed
 		embed2 = discord.Embed(title="**Richiesta Supporto Chiusa**", color=discord.Color.red(), timestamp=datetime.datetime.utcnow())
 		embed2.set_author(name=user.name, icon_url=user.avatar_url)
 		embed2.set_footer(text=ctx.guild.name, icon_url=ctx.guild.icon_url)
