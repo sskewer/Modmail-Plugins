@@ -101,8 +101,8 @@ class TicketManagement(commands.Cog):
         		if channel.topic == f"Ticket User ID: {str(user.id)}":
         			userchannel = channel
         			print(f"Ticket Channel detected for {user.name}")
-		# Ticket Close
-		if userchannel == None:
+        	# Ticket Close
+        	if userchannel == None:
         		await ctx.send(f"L'utente {user.mention} (`{str(user.id)}`) non possiede nessun ticket aperto.")
         		print(f"No Ticket Channel detected for {user.name}")
         	else:
