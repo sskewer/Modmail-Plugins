@@ -64,8 +64,8 @@ class TicketManagement(commands.Cog):
     @commands.has_any_role(454262524955852800, 659513332218331155, 676408167063879715, 720221658501087312)
     async def close(self, ctx: Context, check: discord.User, *, reason: str):
         """Chiudere un ticket per l'utente specificato"""
-	user = ctx.guild.get_member(check.id)
-	if user == None:
+        user = ctx.guild.get_member(check.id)
+        if user == None:
 		if lower(reason) == "force":
 			forcechannel = None
 			forceembed = discord.Embed(description=f"Chiusura **forzata** del canale effettuata!", color=discord.Color.red())
