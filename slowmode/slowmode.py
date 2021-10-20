@@ -38,7 +38,7 @@ class SlowMode(commands.Cog):
         except discord.errors.Forbidden:
             embed = discord.Embed(description="⚠ Non ho i permessi necessari per fare questo!", color=discord.Color.orange())
             return await ctx.send(embed=embed)
-        embed=discord.Embed(description=f"La slowmode per questo canale è ora **{time}**", color=discord.Color.red(), timestamp=datetime.utcnow())
+        embed=discord.Embed(description=f"La slowmode per questo canale è ora **{time}**.", color=discord.Color.red(), timestamp=datetime.utcnow())
         embed.set_author(name="Modifica Slowmode")
         embed.set_footer(text=f"Richiesta da {member.display_name}", icon_url=member.avatar_url)
         await ctx.send(embed=embed)
@@ -52,7 +52,7 @@ class SlowMode(commands.Cog):
         member = ctx.guild.get_member(ctx.message.author.id)
         seconds_off = 0
         await ctx.channel.edit(slowmode_delay=seconds_off)
-        embed=discord.Embed(description=f"La slowmode per questo canale è ora disattivata", color=discord.Color.red(), timestamp=datetime.utcnow())
+        embed=discord.Embed(description=f"La slowmode per questo canale è ora disattivata.", color=discord.Color.red(), timestamp=datetime.utcnow())
         embed.set_author(name="Modifica Slowmode")
         embed.set_footer(text=f"Richiesta da {member.display_name}", icon_url=member.avatar_url)
         await ctx.send(embed=embed)
