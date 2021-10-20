@@ -1,7 +1,6 @@
-import datetime
+from datetime import datetime
 
 import discord
-from discord import File
 from discord.ext import commands
 
 from core import checks
@@ -20,7 +19,7 @@ class Report(commands.Cog):
         """Impostare il canale delle segnalazioni"""
         await self.db.find_one_and_update({"_id": "config"}, {"$set": {"report_channel": channel.id}}, upsert=True)
         
-        embed = discord.Embed(color=discord.Color.blue(), timestamp=datetime.datetime.utcnow())
+        embed = discord.Embed(color=discord.Color.blue(), timestamp=datetime.utcnow())
         embed.add_field(name="Configurazione Canale", value=f"Canale delle segnalazioni correttamente impostato su {channel.mention}", inline=False)
         
         await ctx.send(embed=embed)
@@ -31,7 +30,7 @@ class Report(commands.Cog):
         """Impostare le menzioni delle segnalazioni"""
         await self.db.find_one_and_update({"_id": "config"}, {"$set": {"report_mention": mention}}, upsert=True)
         
-        embed = discord.Embed(color=discord.Color.blue(), timestamp=datetime.datetime.utcnow())
+        embed = discord.Embed(color=discord.Color.blue(), timestamp=datetime.utcnow())
         embed.add_field(name="Configurazioni Menzioni", value=f"Menzioni delle segnalazioni correttamente impostato su {mention}", inline=False)
         
         await ctx.send(embed=embed)
@@ -48,7 +47,7 @@ class Report(commands.Cog):
         except KeyError:
             report_mention = ""
             
-        embed = discord.Embed(color=discord.Color.red(), timestamp=datetime.datetime.utcnow())
+        embed = discord.Embed(color=discord.Color.red(), timestamp=datetime.utcnow())
         embed.set_author(name=ctx.author.name, icon_url=ctx.author.avatar_url)
         
         embed.add_field(name="Utente segnalato", value=f"{user.mention} | ID: {user.id}", inline=False)
@@ -58,7 +57,7 @@ class Report(commands.Cog):
         
         #if ctx.message.attachments != None:
         
-        embed2 = discord.Embed(title="**Riepilogo Segnalazione**", color=discord.Color.red(), timestamp=datetime.datetime.utcnow())
+        embed2 = discord.Embed(title="**Riepilogo Segnalazione**", color=discord.Color.red(), timestamp=datetime.utcnow())
         embed2.set_author(name=ctx.author.name, icon_url=ctx.author.avatar_url)
         embed2.set_footer(text=ctx.guild.name, icon_url=ctx.guild.icon_url)
         

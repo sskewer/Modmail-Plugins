@@ -1,14 +1,9 @@
 import asyncio
 
-import contextlib
 from contextlib import suppress
 
 import discord
-from discord import Member, Role, TextChannel, DMChannel
 from discord.ext import commands
-
-from core import checks
-from core.models import PermissionLevel
 
 class AutoPublishPlugin(commands.Cog):
     def __init__(self, bot):
@@ -19,10 +14,9 @@ class AutoPublishPlugin(commands.Cog):
     async def on_message(self, message):
         if message.channel.id == 625752242611421214 and message.author.id == 625385492438974502:
             print("AUTOPUBLISH: Message to publish detected")
-            bot_channel = message.guild.get_channel(603955376286728226)
             embed = discord.Embed(title="**Annullare la Pubblicazione?**", color=discord.Colour.dark_red())
             embed.description = f"Il [messaggio]({message.jump_url}) sarà presto pubblicato in {message.channel.mention}.\nVuoi forzare l'annullamento dell'operazione?"
-            msg = await bot_channel.send(embed=embed)
+            msg = await message.guild.get_channel(603955376286728226).send(embed=embed)
             await msg.add_reaction("❌")
 
             def check(payload):
