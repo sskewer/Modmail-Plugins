@@ -1,5 +1,5 @@
 from datetime import datetime
-import discord
+import discord, os
 from discord.ext import commands
 from discord.ext.commands import Context, group
 from discord.utils import get
@@ -49,7 +49,6 @@ class TicketManagement(commands.Cog):
 
         # Ticket Open
         if get_user_channel(ctx.guild, user.id) == None:
-            print(f"No Ticket Channel detected for {user.name}")
             channel = await ctx.guild.create_text_channel(f"ticket-{user.name}", category=category, topic=f"Ticket User ID: {str(user.id)}")
             await channel.set_permissions(ctx.guild.default_role, read_messages=False, send_messages=False)
             await channel.set_permissions(mod, read_messages=True, send_messages=True, manage_messages=True, embed_links=True, attach_files=True)
@@ -100,9 +99,15 @@ class TicketManagement(commands.Cog):
             if user_channel == None:
                 await ctx.send(f"L'utente {user.mention} (`{str(user.id)}`) non possiede nessun ticket aperto.")
             else:
+                with open("log.txt", "w") as f:
+                    async for msg in user_channel.history(limit=1000):
+                        if not msg.author.bot:
+                            date = msg.created_at.strftime("%d/%m %H:%M:%S")
+                            f.write(f"[{date}]({msg.author}) {msg.content}\n")
                 await user_channel.delete()
                 await ctx.send(f"**Ticket chiuso per {user.mention} (`{str(user.id)}`) con motivazione: `{reason}`**")
-                await channel_log.send(embed=log_embed)
+                await channel_log.send(embed=log_embed, file=disnake.File("log.txt"))
+                os.remove("log.txt")
                 await user.send(embed=user_embed)
 
     @ticket.command(name="dm")
