@@ -106,7 +106,7 @@ class TicketManagement(commands.Cog):
                             f.write(f"[{date}]({msg.author}) {msg.content}\n")
                 await user_channel.delete()
                 await ctx.send(f"**Ticket chiuso per {user.mention} (`{str(user.id)}`) con motivazione: `{reason}`**")
-                await channel_log.send(embed=log_embed, file=disnake.File("log.txt"))
+                await channel_log.send(embed=log_embed, file=discord.File("log.txt"))
                 os.remove("log.txt")
                 await user.send(embed=user_embed)
 
