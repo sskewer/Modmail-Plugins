@@ -100,7 +100,8 @@ class TicketManagement(commands.Cog):
                 await ctx.send(f"L'utente {user.mention} (`{str(user.id)}`) non possiede nessun ticket aperto.")
             else:
                 with open("log.txt", "w") as f:
-                    history = [message async for message in user_channel.history(limit=1000)].reverse()
+                    history = [message async for message in user_channel.history(limit=1000)]
+                    history.reverse()
                     for msg in history:
                         if not msg.author.bot:
                             date = msg.created_at.strftime("%d/%m %H:%M:%S")
