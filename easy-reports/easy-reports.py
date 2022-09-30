@@ -1,5 +1,6 @@
 from datetime import datetime
 
+import dislash
 from dislash import *
 
 import re
