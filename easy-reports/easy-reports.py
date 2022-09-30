@@ -15,7 +15,6 @@ class EasyReports(commands.Cog):
     async def on_ready(self):
         synced = await self.bot.tree.sync()
         print(f'[easy-reports] INFO: Synced {len(synced)} commands')
-        
     
     @app_commands.command()
     async def ping(self, interaction: discord.Interaction) -> None:
