@@ -40,7 +40,7 @@ class SlowMode(commands.Cog):
             return await ctx.send(embed=embed)
         embed=discord.Embed(description=f"La slowmode per questo canale è ora **{time}**.", color=discord.Color.red(), timestamp=datetime.utcnow())
         embed.set_author(name="Modifica Slowmode")
-        embed.set_footer(text=f"Richiesta da {member.display_name}", icon_url=member.avatar_url)
+        embed.set_footer(text=f"Richiesta da {member.display_name}", icon_url=member.display_avatar.url)
         await ctx.send(embed=embed)
         await ctx.message.delete()
 
@@ -54,9 +54,9 @@ class SlowMode(commands.Cog):
         await ctx.channel.edit(slowmode_delay=seconds_off)
         embed=discord.Embed(description=f"La slowmode per questo canale è ora disattivata.", color=discord.Color.red(), timestamp=datetime.utcnow())
         embed.set_author(name="Modifica Slowmode")
-        embed.set_footer(text=f"Richiesta da {member.display_name}", icon_url=member.avatar_url)
+        embed.set_footer(text=f"Richiesta da {member.display_name}", icon_url=member.display_avatar.url)
         await ctx.send(embed=embed)
         await ctx.message.delete()
 
-def setup(bot):
-    bot.add_cog(SlowMode(bot))
+async def setup(bot):
+    await bot.add_cog(SlowMode(bot))
