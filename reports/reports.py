@@ -16,8 +16,7 @@ BaseCog = getattr(commands, "Cog", object)
 class Report(BaseCog):
     """Un semplice modo per segnalare gli utenti con un comportamento scorretto"""
     
-    def __init__(self, bot, *args, **kwargs):
-        super().__init__(*args, **kwargs)
+    def __init__(self, bot):
         self.bot = bot
         self.db = bot.plugin_db.get_partition(self)        
         
@@ -95,7 +94,7 @@ class Report(BaseCog):
 async def setup(bot):
     cog = Report(bot)
   
-    bot.add_cog(cog)
+    await bot.add_cog(cog)
     
     if not hasattr(bot, "slash"):
         bot.slash = SlashClient(bot)
