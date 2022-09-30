@@ -20,9 +20,6 @@ class EasyReports(commands.Cog):
 
         
 async def setup(bot):
-    if not hasattr(bot, "slash"):
-        bot.slash = SlashClient(bot)
-        
     await bot.add_cog(EasyReports(bot))
     
     
