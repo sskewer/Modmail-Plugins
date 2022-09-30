@@ -3,9 +3,8 @@ from discord.ext import commands
 
 from datetime import datetime
 
-BaseCog = getattr(commands, "Cog", object)
 
-class Report(BaseCog):
+class Report(commands.Cog):
     """Un semplice modo per segnalare gli utenti con un comportamento scorretto"""
 
     def __init__(self, bot):
