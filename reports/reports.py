@@ -95,7 +95,7 @@ class Report(BaseCog):
 async def setup(bot):
     cog = Report(bot)
   
-    await bot.add_cog(cog)
+    bot.add_cog(cog)
     
     if not hasattr(bot, "slash"):
         bot.slash = SlashClient(bot)
