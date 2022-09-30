@@ -9,13 +9,13 @@ from discord import app_commands
 
 class EasyReports(commands.Cog):
     def __init__(self, bot):
-        super().__init__(intents = discord.Intents.default())
         self.bot = bot
-        self.db = bot.plugin_db.get_partition(self)        
-
-    @app_commands.slash_command(name="test", guild_ids=[454261607799717888])
-    async def test(ctx): 
-        await ctx.respond("You executed the slash command!") 
+        self.db = bot.plugin_db.get_partition(self)  
+    
+    @app_commands.command(name="test", guild_only=True)
+    async def test(self, interaction: discord.Interaction) -> None:
+        """Test command"""
+        await interaction.response.send_message("Siete due scemi!", ephemeral=False)
 
         
 async def setup(bot):
