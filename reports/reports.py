@@ -1,11 +1,13 @@
-from datetime import datetime
-from dislash import SlashClient
+import dislash
+from dislash import *
 
 import discord
 from discord.ext import commands
 
 from core import checks
 from core.models import PermissionLevel
+
+from datetime import datetime
 
 
 class Report(commands.Cog): 
