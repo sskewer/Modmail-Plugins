@@ -1,6 +1,7 @@
 import dislash
 from dislash import *
 
+import re
 import discord
 from discord.ext import commands
 
@@ -10,12 +11,15 @@ from core.models import PermissionLevel
 from datetime import datetime
 
 
-class Report(commands.Cog): 
+BaseCog = getattr(commands, "Cog", object)
+ 
+class Report(BaseCog):
     """Un semplice modo per segnalare gli utenti con un comportamento scorretto"""
     
-    def __init__(self, bot):
+    def __init__(self, bot, *args, **kwargs):
+        super().__init__(*args, **kwargs)
         self.bot = bot
-        self.db = bot.plugin_db.get_partition(self)
+        self.db = bot.plugin_db.get_partition(self)        
         
     def cog_unload(self):
         self.bot.slash.teardown()
