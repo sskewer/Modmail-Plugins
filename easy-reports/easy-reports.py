@@ -13,10 +13,8 @@ class EasyReports(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
         self.db = bot.plugin_db.get_partition(self)        
-        
-    def cog_unload(self):
-        self.bot.slash.teardown()
 
+        
 async def setup(bot):
     await bot.add_cog(EasyReports(bot))
     
