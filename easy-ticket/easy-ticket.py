@@ -28,16 +28,18 @@ class TicketManagement(commands.Cog):
     async def open(self, ctx: Context, user: discord.Member):
         """Aprire un ticket per l'utente specificato"""
         # Embed
+        guild_icon = ctx.guild.icon.url if ctx.guild.icon is not None else "https://cdn.discordapp.com/embed/avatars/0.png"
+        
         user_embed = discord.Embed(title="**Richiesta Supporto Accettata**", description=f"Hey <@{user.id}>, la tua richiesta è stata accettata e per questo abbiamo aperto un ticket. Un membro del team Vindertech ti risponderà il prima possibile.", color=discord.Color.green(), timestamp=datetime.utcnow())
         user_embed.set_author(name=user.name, icon_url=user.display_avatar.url)
         user_embed.add_field(name="**Domande Frequenti**", value=f"Se hai bisogno delle domande e risposte frequenti, [clicca qui](https://www.epicgames.com/help/it/fortnite-c75).", inline=False)
         user_embed.add_field(name="**Supporto Tecnico**", value=f"Se hai bisogno di aiuto in gioco, contatta l'assistenza [cliccando qui](https://www.epicgames.com/help/it/contact-us?metadata=eyJoaXN0b3J5TGlua3MiOlt7InVybCI6Ii9mb3J0bml0ZS1jNzUiLCJ0aXRsZSI6IkZvcnRuaXRlIn1dLCJjYXRlZ29yeUlkIjo3NX0%3D).", inline=False)
         user_embed.add_field(name="**Bacheca Trello**", value=f"Puoi consultare i problemi già noti ad Epic Games [cliccando qui](https://trello.com/b/zXyhyOIs/fortnite-italia-community-issues).", inline=False)
-        user_embed.set_footer(text=ctx.guild.name, icon_url=ctx.guild.icon_url)
+        user_embed.set_footer(text=ctx.guild.name, icon_url=guild_icon)
 
         log_embed = discord.Embed(title="**Richiesta Supporto Aperta**", color=discord.Color.green(), timestamp=datetime.utcnow())
         log_embed.set_author(name=user.name, icon_url=user.display_avatar.url)
-        log_embed.set_footer(text=ctx.guild.name, icon_url=ctx.guild.icon_url)
+        log_embed.set_footer(text=ctx.guild.name, icon_url=guild_icon)
         log_embed.add_field(name="Staffer", value=f"{ctx.author.mention} | ID: {ctx.author.id}", inline=False)
         log_embed.add_field(name="Utente", value=f"{user.mention} | ID: {user.id}", inline=False)
         # Vars
@@ -79,15 +81,17 @@ class TicketManagement(commands.Cog):
                 await ctx.send(embed=discord.Embed(description=f"L'utente non è **membro** del server!", color=discord.Color.red()))
         else:
             # Embed
+            guild_icon = ctx.guild.icon.url if ctx.guild.icon is not None else "https://cdn.discordapp.com/embed/avatars/0.png"
+            
             user_embed = discord.Embed(title="**Richiesta Supporto Chiusa**", color=discord.Color.red(), timestamp=datetime.utcnow())
             user_embed.set_author(name=user.name, icon_url=user.display_avatar.url)
-            user_embed.set_footer(text=ctx.guild.name, icon_url=ctx.guild.icon_url)
+            user_embed.set_footer(text=ctx.guild.name, icon_url=guild_icon)
             user_embed.add_field(name="Staffer", value=f"{ctx.author.mention} | ID: {ctx.author.id}", inline=False)
             user_embed.add_field(name="Motivazione", value=reason, inline=False)
 
             log_embed = discord.Embed(title="**Richiesta Supporto Chiusa**", color=discord.Color.red(), timestamp=datetime.utcnow())
             log_embed.set_author(name=user.name, icon_url=user.display_avatar.url)
-            log_embed.set_footer(text=ctx.guild.name, icon_url=ctx.guild.icon_url)
+            log_embed.set_footer(text=ctx.guild.name, icon_url=guild_icon)
             log_embed.add_field(name="Staffer", value=f"{ctx.author.mention} | ID: {ctx.author.id}", inline=False)
             log_embed.add_field(name="Utente", value=f"{user.mention} | ID: {user.id}", inline=False)
             log_embed.add_field(name="Motivazione", value=reason, inline=False)
@@ -119,15 +123,17 @@ class TicketManagement(commands.Cog):
         # Vars
         channel_log = get(ctx.guild.channels, id=721809334178414614)
         # Embed
+        guild_icon = ctx.guild.icon.url if ctx.guild.icon is not None else "https://cdn.discordapp.com/embed/avatars/0.png"
+        
         user_embed = discord.Embed(title="**Notifica Richiesta Supporto**", color=discord.Color.blue(), timestamp=datetime.utcnow())
         user_embed.set_author(name=ctx.author.name, icon_url=ctx.author.display_avatar.url)
-        user_embed.set_footer(text=ctx.guild.name, icon_url=ctx.guild.icon_url)
+        user_embed.set_footer(text=ctx.guild.name, icon_url=guild_icon)
         user_embed.add_field(name="Staffer", value=f"{ctx.author.mention} | ID: {ctx.author.id}", inline=False)
         user_embed.add_field(name="Messaggio", value=content, inline=False)
 
         log_embed = discord.Embed(title="**Invio Messaggio DM**", color=discord.Color.blue(), timestamp=datetime.utcnow())
         log_embed.set_author(name=user.name, icon_url=user.display_avatar.url)
-        log_embed.set_footer(text=ctx.guild.name, icon_url=ctx.guild.icon_url)
+        log_embed.set_footer(text=ctx.guild.name, icon_url=guild_icon)
         log_embed.add_field(name="Staffer", value=f"{ctx.author.mention} | ID: {ctx.author.id}", inline=False)
         log_embed.add_field(name="Utente", value=f"{user.mention} | ID: {user.id}", inline=False)
         log_embed.add_field(name="Messaggio", value=content, inline=False)
