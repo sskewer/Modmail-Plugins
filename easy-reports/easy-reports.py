@@ -3,7 +3,6 @@ from datetime import datetime
 import dislash
 from dislash import *
 
-import re
 import discord
 from discord.ext import commands
 from discord.ext.commands import group
