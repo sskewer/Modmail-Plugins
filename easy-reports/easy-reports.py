@@ -11,6 +11,12 @@ class EasyReports(commands.Cog):
         self.bot = bot
         self.db = bot.plugin_db.get_partition(self)  
     
+    @commands.Cog.listener()
+    async def on_ready(self):
+        synced = await self.bot.tree.sync()
+        print(f'[easy-reports] INFO: Synced {len(synced)} commands')
+        
+    
     @app_commands.command()
     async def ping(self, interaction: discord.Interaction) -> None:
         ping1 = f"{str(round(self.bot.latency * 1000))} ms"
