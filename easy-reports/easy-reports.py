@@ -10,6 +10,7 @@ from discord.ext.commands import group
 
 class EasyReports(commands.Cog):
     def __init__(self, bot):
+        bot.slash = SlashClient(bot)
         self.bot = bot
         self.db = bot.plugin_db.get_partition(self)  
     
