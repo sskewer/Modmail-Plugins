@@ -1,6 +1,6 @@
 from datetime import datetime
 
-from dislash import slash_command
+from dislash import *
 
 import re
 import discord
@@ -13,6 +13,7 @@ class EasyReports(commands.Cog):
         self.bot = bot
         self.db = bot.plugin_db.get_partition(self)  
     
+    @dislash.guild_only()
     @slash_command(description="Says Hello")
     async def hello(self, inter):
         await inter.respond("Hello from cog!")
