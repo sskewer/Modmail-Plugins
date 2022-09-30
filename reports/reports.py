@@ -13,9 +13,9 @@ BaseCog = getattr(commands, "Cog", object)
 class Report(BaseCog):
     """Un semplice modo per segnalare gli utenti con un comportamento scorretto"""
 
-    def __init__(self, bot):
-        self.bot = bot
-        self.db = bot.plugin_db.get_partition(self)
+    def __init__(self):
+        pass
+        #self.db = bot.plugin_db.get_partition(self)
 
     def cog_unload(self):
         self.bot.slash.teardown()
