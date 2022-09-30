@@ -13,7 +13,7 @@ class EasyReports(commands.Cog):
         self.bot = bot
         self.db = bot.plugin_db.get_partition(self)        
 
-    @bot.slash_command(name="test", guild_ids=[454261607799717888])
+    @commands.slash_command(name="test", guild_ids=[454261607799717888])
     async def test(ctx): 
         await ctx.respond("You executed the slash command!") 
 
