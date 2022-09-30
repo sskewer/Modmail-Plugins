@@ -1,10 +1,11 @@
 from datetime import datetime
 
+from dislash import slash_command
+
 import re
 import discord
 from discord.ext import commands
 from discord.ext.commands import group
-from discord import app_commands 
 
 
 class EasyReports(commands.Cog):
@@ -12,11 +13,9 @@ class EasyReports(commands.Cog):
         self.bot = bot
         self.db = bot.plugin_db.get_partition(self)  
     
-    @app_commands.command(name="test")
-    @app_commands.guilds(discord.Object(id=454261607799717888))
-    async def test(self, interaction: discord.Interaction) -> None:
-        """Test command"""
-        await interaction.response.send_message("Siete due scemi!", ephemeral=False)
+    @slash_command(description="Says Hello")
+    async def hello(self, inter):
+        await inter.respond("Hello from cog!")
 
         
 async def setup(bot):
