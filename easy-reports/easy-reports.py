@@ -13,6 +13,7 @@ class EasyReports(commands.Cog):
         self.db = bot.plugin_db.get_partition(self)  
     
     @app_commands.command(name="test")
+    @app_commands.guilds(discord.Object(id=454261607799717888))
     async def test(self, interaction: discord.Interaction) -> None:
         """Test command"""
         await interaction.response.send_message("Siete due scemi!", ephemeral=False)
