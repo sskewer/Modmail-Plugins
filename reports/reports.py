@@ -6,12 +6,18 @@ from discord.ext import commands
 from core import checks
 from core.models import PermissionLevel
 
+from dislash import SlashClient
+
+
 class Report(commands.Cog): 
     """Un semplice modo per segnalare gli utenti con un comportamento scorretto"""
     
     def __init__(self, bot):
         self.bot = bot
         self.db = bot.plugin_db.get_partition(self)
+        
+    def cog_unload(self):
+        self.bot.slash.teardown()
 
     @commands.command(aliases=["rchannel"])
     @checks.has_permissions(PermissionLevel.MODERATOR)
@@ -69,5 +75,9 @@ class Report(commands.Cog):
         await ctx.message.delete()
         await ctx.author.send(embed=embed2)
         
-def setup(bot):
-    bot.add_cog(Report(bot))
+        
+async def setup(bot):
+    await bot.add_cog(Report(bot))
+    
+    if not hasattr(bot, "slash"):
+        bot.slash = SlashClient(bot)
