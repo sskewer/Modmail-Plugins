@@ -1,22 +1,21 @@
 from datetime import datetime
 
-import dislash
-from dislash import *
-
 import discord
+from discord import app_commands
 from discord.ext import commands
 from discord.ext.commands import group
 
 
 class EasyReports(commands.Cog):
     def __init__(self, bot):
-        bot.slash = SlashClient(bot)
         self.bot = bot
         self.db = bot.plugin_db.get_partition(self)  
     
-    @slash_command(description="Says Hello")
-    async def hello(self, inter):
-        await inter.respond("Hello from cog!")
+    @app_commands.command()
+    async def ping(self, interaction: discord.Interaction) -> None:
+        ping1 = f"{str(round(self.bot.latency * 1000))} ms"
+        embed = discord.Embed(title = "**Pong!**", description = "**" + ping1 + "**", color = 0xafdafc)
+        await interaction.response.send_message(embed = embed)
 
         
 async def setup(bot):
