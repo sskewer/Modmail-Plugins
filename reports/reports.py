@@ -19,6 +19,17 @@ class Report(commands.Cog):
         
     def cog_unload(self):
         self.bot.slash.teardown()
+        
+        
+    @dislash.guild_only()
+    @slash_command(
+        description="Restituisce la mappa attuale di Fortnite Battaglia Reale",
+        options=[
+            Option("pois", "Aggiunge o rimuove i punti di interesse sulla mappa", OptionType.BOOLEAN, required=False)
+        ]
+    )
+    async def test(self, inter, pois=None):
+        await inter.reply("Test!", ephemeral=True)
 
     @commands.command(aliases=["rchannel"])
     @checks.has_permissions(PermissionLevel.MODERATOR)
