@@ -29,7 +29,7 @@ class LockServer(commands.Cog):
         else:
             await everyone.edit(permissions=perms_on, reason=f"{member.display_name} ha sbloccato il server")
             embed=discord.Embed(description=f"```Il server è ora sbloccato per l'invio di messaggi.```", color=discord.Color.green(), timestamp=datetime.utcnow())
-        embed.set_author(name="|  Blocco Server", icon_url=member.avatar_url)
+        embed.set_author(name="|  Blocco Server", icon_url=member.display_avatar.url)
         embed.set_footer(text=f"Richiesto da {member.display_name}")
         await ctx.send(embed=embed)
         await ctx.message.delete()
