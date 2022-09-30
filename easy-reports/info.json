@@ -1,0 +1,4 @@
+{
+    "name": "Easy Reports",
+    "requirements": ["dislash.py==1.4.9"]
+}
