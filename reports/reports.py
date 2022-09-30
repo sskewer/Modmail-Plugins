@@ -93,6 +93,8 @@ class Report(BaseCog):
         
 async def setup(bot):
     cog = Report(bot)
+    print(cog)
+    print(bot)
   
     await bot.add_cog(cog)
     
