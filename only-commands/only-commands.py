@@ -12,5 +12,5 @@ class OnlyCommandsPlugin(commands.Cog):
         if message.channel.id == 1277245606645075978:# and not message.author.bot and not message.author.guild_permissions.administrator:
             await message.delete()
 
-def setup(bot):
-    bot.add_cog(OnlyCommandsPlugin(bot))
+async def setup(bot):
+    await bot.add_cog(OnlyCommandsPlugin(bot))
