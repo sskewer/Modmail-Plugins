@@ -9,7 +9,7 @@ class OnlyCommandsPlugin(commands.Cog):
 
     @commands.Cog.listener()
     async def on_message(self, message):
-        if message.channel.id == 1277245606645075978:# and not message.author.bot and not message.author.guild_permissions.administrator:
+        if message.channel.id == 1277245606645075978 and not message.author.bot and not message.author.guild_permissions.administrator:
             await message.delete()
 
 async def setup(bot):
