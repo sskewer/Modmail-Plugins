@@ -1,6 +1,5 @@
-import asyncio
+import asyncio, random, discord
 
-import discord
 from discord.ext import commands
 
 nicks = [
@@ -155,6 +154,7 @@ class RandomNickPlugin(commands.Cog):
     @commands.guild_only()
     @commands.has_permissions(manage_nicknames=True)
     async def randomnick(self, ctx, *, user: discord.Member):
+        """Assegna un nickname casuale all'utente"""
         randomnick = random.choice(nicks)
         try:
             await user.edit(nick=randomnick)
