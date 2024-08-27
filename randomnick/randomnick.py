@@ -151,8 +151,8 @@ class RandomNickPlugin(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    @group(name="randomnick", invoke_without_command=True)
     @commands.command(aliases=["random"])
+    @commands.guild_only()
     @commands.has_permissions(manage_nicknames=True)
     async def randomnick(self, ctx, *, user: discord.Member):
         randomnick = random.choice(nicks)
