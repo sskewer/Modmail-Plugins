@@ -10,8 +10,10 @@ class DeleteLogPlugin(commands.Cog):
 
     @commands.Cog.listener()
     async def on_raw_message_delete(self, payload):
+        print('Test')
         guild = await self.bot.fetch_guild(payload.guild_id)
         logChannel = await self.bot.fetch_channel("827832459609374730")
+        await logChannel.send("test")
         embed = discord.Embed(
             color=58367, title=":wastebasket: Messaggio eliminato", timestamp=datetime.datetime.utcnow()
         )
@@ -31,7 +33,7 @@ class DeleteLogPlugin(commands.Cog):
             inline=True,
         )
         embed.add_field(name="Messaggio", value=f"`{payload.cached_message.content}`", inline=False)
-        logChannel.send(embed=embed)
+        await logChannel.send(embed=embed)
 
 
 async def setup(bot):
