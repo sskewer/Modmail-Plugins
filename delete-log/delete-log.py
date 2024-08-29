@@ -13,7 +13,7 @@ class DeleteLogPlugin(commands.Cog):
         guild = await self.bot.fetch_guild(payload.guild_id)
         logChannel = await self.bot.fetch_channel("827832459609374730")
         embed = discord.Embed(
-            color=58367, title=":wastebasket: Messaggio eliminato", timestamp=datetime.datetime.utcnow()
+            color=discord.Color.red(), title=":wastebasket: Messaggio eliminato", timestamp=datetime.datetime.utcnow()
         )
         embed.set_footer(
             text=guild.name, icon_url=guild.icon.url if guild.icon else "https://cdn.discordapp.com/embed/avatars/0.png"
