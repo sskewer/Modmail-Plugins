@@ -54,7 +54,7 @@ class DeleteLogPlugin(commands.Cog):
         if len(payload.cached_message.content) < 1024:
             await logChannel.send(embed=embed)
         else:
-            await logChannel.send(embed=embed, file=discord.File(io.StringIO(text_content), filename="content.txt"))
+            await logChannel.send(embed=embed, file=discord.File(io.StringIO(payload.cached_message.content), filename="content.txt"))
 
 
 async def setup(bot):
