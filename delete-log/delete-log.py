@@ -28,7 +28,7 @@ class DeleteLogPlugin(commands.Cog):
             time.sleep(0.5)
             async for entry in guild.audit_logs(limit=4, action=discord.AuditLogAction.message_delete):
                 if entry.target.id == payload.cached_message.author.id and entry.extra.channel.id == payload.channel_id:
-                    deleter = entry.user
+                    deleter = entry.user.id
 
             embed.add_field(
                 name="Utente",
