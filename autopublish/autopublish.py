@@ -3,7 +3,7 @@ import asyncio
 import discord
 from discord.ext import commands
 
-class OnlyCommandsPlugin(commands.Cog):
+class AutopublishPlugin(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
@@ -32,4 +32,4 @@ class OnlyCommandsPlugin(commands.Cog):
                 print("AUTOPUBLISH: Message published")
 
 async def setup(bot):
-    await bot.add_cog(OnlyCommandsPlugin(bot))
+    await bot.add_cog(AutopublishPlugin(bot))
