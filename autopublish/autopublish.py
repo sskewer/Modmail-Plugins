@@ -26,8 +26,10 @@ class AutopublishPlugin(commands.Cog):
                 await msg.edit(embed=embed)
                 print("AUTOPUBLISH: Message not published")
             except asyncio.TimeoutError:
-                with suppress(discord.errors.NotFound, discord.errors.HTTPException):
+                try:
                     await message.publish()
+                except:
+                    pass
                 await msg.delete()
                 print("AUTOPUBLISH: Message published")
 
