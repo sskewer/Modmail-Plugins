@@ -42,5 +42,5 @@ class MemesPlugin(commands.Cog):
                 await message.delete()
                 await message.channel.send(embed = embed)
 
-def setup(bot):
+async def setup(bot):
     bot.add_cog(MemesPlugin(bot))
