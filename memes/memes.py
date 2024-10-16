@@ -1,7 +1,5 @@
 import asyncio
 
-from contextlib import suppress
-
 import discord
 from discord.ext import commands
 
@@ -43,4 +41,4 @@ class MemesPlugin(commands.Cog):
                 await message.channel.send(embed = embed)
 
 async def setup(bot):
-    bot.add_cog(MemesPlugin(bot))
+    await bot.add_cog(MemesPlugin(bot))
