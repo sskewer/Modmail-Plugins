@@ -20,7 +20,7 @@ class MemesPlugin(commands.Cog):
                 theredheat = message.guild.get_member(423572109684637708)
                 if message.author == theredheat:
                     embed = discord.Embed(title = "Error 404: qualcosa non va...", description = "O mio supremo maestro!\nCi inchineremo tutti alla sua presenza.", timestamp = datetime.datetime.now(), color = discord.Colour.blue())
-                    embed.set_thumbnail(url = message.author.avatar_url)
+                    embed.set_thumbnail(url = message.author.avatar)
                     embed.set_footer(text = "Richiesto dal Maestro Supremo")
                 else:
                     embed = discord.Embed(title = "Cane con Anguria sul Capo", description = f"**Autore:** {theredheat.mention}\n**Tecnica:** Olio su Discord\n**Collocazione:** Official Fortnite Italia", timestamp = datetime.datetime.now(), color = discord.Colour.green())
@@ -30,7 +30,7 @@ class MemesPlugin(commands.Cog):
                 mettius = message.guild.get_member(707165674845241344)
                 if message.author == mettius:
                     embed = discord.Embed(title = "Error 404: qualcosa non va...", description = "O mio supremo maestro!\nCi inchineremo tutti alla sua presenza.", timestamp = datetime.datetime.now(), color = discord.Colour.orange())
-                    embed.set_thumbnail(url = message.author.avatar_url)
+                    embed.set_thumbnail(url = message.author.avatar)
                     embed.set_footer(text = "Richiesto dal Maestro Supremo")
                 else:
                     embed = discord.Embed(title = "La Meraviglia", description = f"**Autore:** {mettius.mention}\n**Stile:** Dolce Stil Veneto\n**Collocazione:** Official Fortnite Italia", timestamp = datetime.datetime.now(), color = discord.Colour.blue())
