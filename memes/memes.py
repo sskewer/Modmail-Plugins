@@ -10,6 +10,7 @@ class MemesPlugin(commands.Cog):
     @commands.Cog.listener()
     async def on_message(self, message):
         print(message)
+        await message.channel.send("t")
         if message.channel.id == 709741388782370846:
             embed = None
             print(message.content)
