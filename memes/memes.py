@@ -9,10 +9,10 @@ class MemesPlugin(commands.Cog):
 
     @commands.Cog.listener()
     async def on_message(self, message):
-        print(message)
-        if message.channel.id == 709741388782370846:
+        if message.channel.id == 709741388782370846 and not message.author.bot:
             embed = None
             print(message.content)
+            await message.channel.send(message.content)
             if message.content.lower() == "docflood":
                 doc = message.guild.get_member(216316781483130880)
                 embed = discord.Embed(description = f"**Con tal ironía de Italia**\n\n**EN HONOR A NUESTRO LÍDER ({doc.mention})**", timestamp = datetime.datetime.now(), color = discord.Colour.gold())
