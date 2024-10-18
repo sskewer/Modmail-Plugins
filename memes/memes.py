@@ -11,9 +11,8 @@ class MemesPlugin(commands.Cog):
     async def on_message(self, message):
         if message.channel.id == 709741388782370846 and not message.author.bot:
             embed = None
-            print(message.content)
-            await message.channel.send(message.content)
             if message.content.lower() == "docflood":
+                await message.channel.send("if")
                 doc = message.guild.get_member(216316781483130880)
                 embed = discord.Embed(description = f"**Con tal ironía de Italia**\n\n**EN HONOR A NUESTRO LÍDER ({doc.mention})**", timestamp = datetime.datetime.now(), color = discord.Colour.gold())
                 embed.set_image(url = "https://cdn.glitch.com/ce23a52c-740e-4bfd-a0b2-8e7f838de4d2%2Fimage0.png?v=1589287037268")
@@ -38,6 +37,7 @@ class MemesPlugin(commands.Cog):
                     embed = discord.Embed(title = "La Meraviglia", description = f"**Autore:** {mettius.mention}\n**Stile:** Dolce Stil Veneto\n**Collocazione:** Official Fortnite Italia", timestamp = datetime.datetime.now(), color = discord.Colour.blue())
                     embed.set_image(url = "https://cdn.glitch.com/ce23a52c-740e-4bfd-a0b2-8e7f838de4d2%2F7bed4Gr.png?v=1589286696419")
                     embed.set_footer(text = f"Richiesto da {message.author}")
+            await message.channel.send(embed = embed)
             if embed != None:
                 await message.delete()
                 await message.channel.send(embed = embed)
